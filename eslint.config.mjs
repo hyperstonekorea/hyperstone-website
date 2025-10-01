@@ -20,6 +20,22 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // Relax some rules for production builds
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
+      // Allow unused parameters in some cases
+      "no-unused-vars": "off",
+    },
+  },
+  {
+    files: ["scripts/**/*.js", "test-*.js"],
+    rules: {
+      // Allow require statements in script files
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

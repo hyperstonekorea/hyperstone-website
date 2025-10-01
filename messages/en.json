@@ -1,0 +1,153 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "HYPERSTONE",
+    "subtitle": "Innovative Solutions for Construction Industry",
+    "description": "Providing the highest quality concrete products under the DULITE brand",
+    "scrollDown": "Scroll Down"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Discover HYPERSTONE's philosophy and values that lead innovation in the construction industry",
+    "vision": "Vision",
+    "mission": "Mission",
+    "visionText": "As an innovative company leading the future of the construction industry, we create a better construction environment through sustainable development and technological innovation.",
+    "missionText": "We support our customers' success with the highest quality concrete solutions and contribute to the realization of safe and efficient construction projects.",
+    "coreValues": "Core Values",
+    "coreValuesText": "Explore the core values and expertise that HYPERSTONE pursues",
+    "expertise": "Expertise",
+    "expertiseText": "We provide optimal solutions based on professional knowledge and extensive experience in the construction industry",
+    "innovation": "Innovation",
+    "innovationText": "We develop innovative products that lead the industry through continuous research and development",
+    "quality": "Quality",
+    "qualityText": "We guarantee the highest level of product quality through strict quality management systems",
+    "excellence": "Excellence",
+    "excellenceText": "We provide the best service in the industry through continuous efforts for customer satisfaction",
+    "stats": {
+      "experience": "10+",
+      "experienceLabel": "Years of Experience",
+      "projects": "500+",
+      "projectsLabel": "Successful Projects",
+      "satisfaction": "99%",
+      "satisfactionLabel": "Customer Satisfaction"
+    }
+  },
+  "products": {
+    "title": "DULITE Products",
+    "subtitle": "Professional and innovative concrete solutions",
+    "description": "Discover DULITE brand's high-quality product lineup that meets diverse requirements in the construction industry",
+    "readymixconcrete": {
+      "name": "Dulite Ready Mix Concrete",
+      "description": "High-quality ready mix concrete solutions"
+    },
+    "precastconcrete": {
+      "name": "Dulite Precast Concrete",
+      "description": "Precast concrete products"
+    },
+    "groutingagent": {
+      "name": "Dulite Grouting Agent",
+      "description": "Ground reinforcement grouting agent"
+    },
+    "waterproofagent": {
+      "name": "Dulite Waterproof Agent",
+      "description": "Waterproofing agent solutions"
+    },
+    "learnMore": "Learn More",
+    "viewCatalog": "View Product Catalog",
+    "cta": {
+      "title": "Need a Custom Solution?",
+      "description": "HYPERSTONE's experts will propose solutions optimized for your project"
+    },
+    "categories": {
+      "concrete": {
+        "title": "Concrete Products",
+        "description": "High-quality concrete solutions proven at construction sites"
+      },
+      "specialty": {
+        "title": "Specialty Solutions",
+        "description": "Special purpose products for professional construction environments"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Start your successful project with HYPERSTONE",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "hours": "Business Hours",
+    "location": "Location",
+    "established": "Established",
+    "callNow": "Call Now",
+    "sendEmail": "Send Email",
+    "info": {
+      "title": "Contact Information"
+    },
+    "cta": {
+      "title": "Want Project Consultation?",
+      "description": "Consult directly with our experts to find the optimal solution"
+    },
+    "form": {
+      "title": "Send Inquiry",
+      "name": "Name",
+      "nameRequired": "Please enter your name",
+      "phone": "Phone",
+      "phoneRequired": "Please enter your phone number",
+      "email": "Email",
+      "emailRequired": "Please enter your email",
+      "emailInvalid": "Please enter a valid email format",
+      "message": "Detailed Inquiry",
+      "messageRequired": "Please enter your inquiry",
+      "submit": "Send Inquiry",
+      "submitting": "Sending...",
+      "success": "Your inquiry has been sent successfully",
+      "error": "An error occurred while sending your inquiry"
+    }
+  },
+  "footer": {
+    "company": "HYPERSTONE",
+    "businessNumber": "Business Registration Number",
+    "ceo": "CEO",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2024 HYPERSTONE. All rights reserved."
+  },
+  "product": {
+    "overview": "Product Overview",
+    "keyFeatures": "Key Features",
+    "specifications": "Technical Specifications",
+    "applications": "Applications",
+    "relatedProducts": "Related Products",
+    "inquire": "Inquire Now",
+    "backToProducts": "Back to Products"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close"
+  },
+  "seo": {
+    "home": {
+      "title": "HYPERSTONE - Innovative Solutions for Construction Industry | DULITE Brand",
+      "description": "HYPERSTONE provides the highest quality concrete products under the DULITE brand. Discover professional construction solutions including ready mix concrete, precast concrete, grouting agents, and waterproof agents."
+    },
+    "about": {
+      "title": "About Us | HYPERSTONE - Construction Industry Innovation Leader",
+      "description": "Discover HYPERSTONE's vision, mission, and core values that lead the future of the construction industry. We provide the best concrete solutions with expertise and innovation."
+    },
+    "products": {
+      "title": "DULITE Products | HYPERSTONE Concrete Solutions",
+      "description": "High-quality concrete product lineup under the DULITE brand. Professional solutions including ready mix concrete, precast concrete, ground reinforcement grouting agents, and waterproof agents that meet diverse requirements in the construction industry."
+    },
+    "contact": {
+      "title": "Contact Us | HYPERSTONE Inquiry and Consultation",
+      "description": "Start your successful project with HYPERSTONE. Contact us anytime for expert consultation, quotation inquiries, product information, and more."
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "emailRecipient": "admin@hyperstone.co.kr",
+  "sectionConfigs": [
+    {
+      "sectionId": "hero",
+      "backgroundType": "color",
+      "backgroundValue": "#0082FB",
+      "opacity": 80,
+      "tone": "dark"
+    },
+    {
+      "sectionId": "about",
+      "backgroundType": "color",
+      "backgroundValue": "#F1F5F8",
+      "opacity": 100,
+      "tone": "light"
+    },
+    {
+      "sectionId": "products",
+      "backgroundType": "color",
+      "backgroundValue": "#FFFFFF",
+      "opacity": 100,
+      "tone": "light"
+    },
+    {
+      "sectionId": "contact",
+      "backgroundType": "color",
+      "backgroundValue": "#1C2B33",
+      "opacity": 90,
+      "tone": "dark"
+    }
+  ]
+}

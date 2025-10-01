@@ -5,23 +5,47 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "build:analyze": "ANALYZE=true next build --turbopack",
+    "build:production": "cross-env NODE_ENV=production next build",
     "start": "next start",
-    "lint": "eslint"
+    "start:production": "cross-env NODE_ENV=production next start",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out",
+    "export": "next build && next export",
+    "optimize": "node scripts/optimize-build.js",
+    "deploy:prepare": "npm run optimize",
+    "test:integration": "node scripts/integration-test.js",
+    "test:functional": "node scripts/functional-test.js",
+    "test:all": "node scripts/run-all-tests.js",
+    "test:pre-deploy": "npm run test:all",
+    "test:local": "node scripts/local-test.js",
+    "test:quick-start": "node scripts/quick-start-test.js"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.23.22",
+    "next": "15.5.4",
+    "next-intl": "^4.3.9",
+    "nodemailer": "^7.0.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
