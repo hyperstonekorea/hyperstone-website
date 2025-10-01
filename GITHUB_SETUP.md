@@ -17,17 +17,23 @@ This guide will help you create a GitHub repository under the hyperstonekorea or
 
 ## Step 2: Connect Local Repository to GitHub
 
-The local repository is already configured with the remote origin. After creating the repository on GitHub, run:
+After creating the repository on GitHub, run these commands in your terminal:
 
 ```bash
 # Navigate to your project directory (if not already there)
 cd hyperstone-website
 
-# Push your code to GitHub
+# Add the GitHub repository as remote origin
+git remote add origin https://github.com/hyperstonekorea/hyperstone-website.git
+
+# Push your code to GitHub for the first time
 git push -u origin main
 ```
 
-The remote origin is already set to: `https://github.com/hyperstonekorea/hyperstone-website.git`
+If you encounter authentication issues, you may need to:
+1. Set up a Personal Access Token (PAT) for authentication
+2. Or use SSH keys for authentication
+3. Or use GitHub CLI: `gh auth login`
 
 ## Step 3: Verify the Connection
 
