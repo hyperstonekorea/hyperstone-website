@@ -43,7 +43,34 @@ After pushing, you should see all your files on GitHub. The repository should co
 - Configuration files
 - Documentation
 
-## Step 4: Optional - Set Up Branch Protection Rules
+## Step 4: Add Collaborators and Manage Permissions
+
+To give access to other users (like `hustlingup`):
+
+### For Organization Repositories:
+1. Go to your repository: https://github.com/hyperstonekorea/hyperstone-website
+2. Click on "Settings" tab
+3. Click on "Manage access" in the left sidebar
+4. Click "Invite a collaborator" button
+5. Enter the username: `hustlingup`
+6. Select permission level:
+   - **Read**: Can view and clone the repository
+   - **Triage**: Can manage issues and pull requests
+   - **Write**: Can push to the repository (recommended for developers)
+   - **Maintain**: Can manage repository settings
+   - **Admin**: Full access to the repository
+7. Click "Add [username] to this repository"
+
+### Alternative: Add to Organization
+If you want to give broader access:
+1. Go to https://github.com/hyperstonekorea
+2. Click "People" tab
+3. Click "Invite member"
+4. Enter username: `hustlingup`
+5. Choose role: Member or Owner
+6. Send invitation
+
+## Step 5: Optional - Set Up Branch Protection Rules
 
 To protect your main branch:
 

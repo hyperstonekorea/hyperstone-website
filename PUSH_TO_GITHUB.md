@@ -81,16 +81,21 @@ Your repository contains the complete HYPERSTONE website:
 
 Once your code is on GitHub, you can:
 
-1. **Deploy to Vercel**:
+1. **Add Collaborators**:
+   - Go to repository Settings > Manage access
+   - Invite `hustlingup` with Write permissions
+   - Or add to hyperstonekorea organization
+
+2. **Deploy to Vercel**:
    - Connect your GitHub repository to Vercel
    - Set up environment variables
    - Enable automatic deployments
 
-2. **Set up Domain**:
+3. **Set up Domain**:
    - Configure hyperstone.co.kr domain
    - Set up SSL certificates
 
-3. **Configure Email Service**:
+4. **Configure Email Service**:
    - Set up Gmail SMTP or SendGrid
    - Test contact form functionality
 
