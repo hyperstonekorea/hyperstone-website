@@ -21,7 +21,10 @@
     "test:all": "node scripts/run-all-tests.js",
     "test:pre-deploy": "npm run test:all",
     "test:local": "node scripts/local-test.js",
-    "test:quick-start": "node scripts/quick-start-test.js"
+    "test:quick-start": "node scripts/quick-start-test.js",
+    "deploy:checklist": "node scripts/deployment-checklist.js",
+    "deploy:vercel": "npm run deploy:checklist && echo 'Ready for Vercel deployment!'",
+    "deploy:verify": "node scripts/verify-deployment.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

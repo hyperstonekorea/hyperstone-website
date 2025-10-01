@@ -1,6 +1,7 @@
 {
   "buildCommand": "npm run build:production",
   "framework": "nextjs",
+  "regions": ["icn1"],
   "functions": {
     "src/app/api/**/*.ts": {
       "maxDuration": 10
@@ -43,6 +44,10 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
         }
       ]
     }
@@ -52,6 +57,18 @@
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml",
       "permanent": true
+    },
+    {
+      "source": "/admin/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "(?<host>.*)"
+        }
+      ],
+      "destination": "/admin/$1",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -59,5 +76,8 @@
       "source": "/robots.txt",
       "destination": "/robots.txt"
     }
-  ]
+  ],
+  "env": {
+    "NEXT_TELEMETRY_DISABLED": "1"
+  }
 }
