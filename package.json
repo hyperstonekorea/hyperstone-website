@@ -29,7 +29,8 @@
     "deploy:check-status": "node scripts/check-deployment-status.js",
     "domain:check-dns": "node scripts/check-dns.js",
     "vercel:setup": "node scripts/vercel-setup.js",
-    "vercel:env-template": "node scripts/vercel-env-template.js"
+    "vercel:env-template": "node scripts/vercel-env-template.js",
+    "test:404-fixes": "node scripts/test-404-fixes.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
