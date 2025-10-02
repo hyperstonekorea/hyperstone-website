@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { Locale } from '@/types';
 import { products } from '@/data/products';
 import ProductDetailPage from '@/components/pages/ProductDetailPage';
@@ -55,5 +57,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
   
-  return <ProductDetailPage product={product} locale={locale} />;
+  // Get messages for the locale
+  const messages = await getMessages();
+  
+  return (
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      <ProductDetailPage product={product} locale={locale} />
+    </NextIntlClientProvider>
+  );
 }
