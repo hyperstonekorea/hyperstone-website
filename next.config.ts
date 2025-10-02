@@ -5,7 +5,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 const nextConfig: NextConfig = {
   // Production build optimizations
-  output: 'standalone', // Optimized for deployment
+  // output: 'standalone', // Removed - not needed for Vercel deployment
   
   // Image optimization settings
   images: {
