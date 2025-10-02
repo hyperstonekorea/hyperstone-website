@@ -1,25 +1,15 @@
+'use client';
+
 import { Locale } from '@/types';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { ProductsSection } from '@/components/sections/ProductsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
+import { useParams } from 'next/navigation';
 
-interface PageProps {
-  params: Promise<{
-    locale: Locale;
-  }>;
-}
-
-// Generate static params for supported locales
-export async function generateStaticParams() {
-  return [
-    { locale: 'ko' },
-    { locale: 'en' }
-  ];
-}
-
-export default async function Home({ params }: PageProps) {
-  const { locale } = await params;
+export default function Home() {
+  const params = useParams();
+  const locale = params.locale as Locale;
 
   return (
     <main>

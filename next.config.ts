@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       'hyperstone.co.kr',
       'images.unsplash.com', // For demo images
       'via.placeholder.com', // For placeholder images
+      'placehold.co', // For placeholder images
     ],
     
     // Remote patterns for more flexible image sources
@@ -37,6 +38,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: '**.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
       },
     ],
     

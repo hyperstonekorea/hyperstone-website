@@ -92,6 +92,9 @@ export function OptimizedImage({
 
   // Generate a simple blur placeholder if none provided
   const generateBlurDataURL = (width: number = 10, height: number = 10) => {
+    // Only generate on client side
+    if (typeof window === 'undefined') return undefined;
+    
     const canvas = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
@@ -103,7 +106,7 @@ export function OptimizedImage({
     return canvas.toDataURL();
   };
 
-  const defaultBlurDataURL = blurDataURL || (typeof window !== 'undefined' ? generateBlurDataURL() : undefined);
+  const defaultBlurDataURL = blurDataURL || generateBlurDataURL();
 
   if (hasError) {
     return (

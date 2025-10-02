@@ -51,12 +51,12 @@ export const products: Product[] = [
       ]
     },
     images: {
-      thumbnail: "/images/products/readymix-thumb.jpg",
+      thumbnail: "https://placehold.co/400x256/0082FB/FFFFFF?text=Ready+Mix+Concrete",
       gallery: [
-        "/images/products/readymix-1.jpg",
-        "/images/products/readymix-2.jpg",
-        "/images/products/readymix-3.jpg",
-        "/images/products/readymix-4.jpg"
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Ready+Mix+1",
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Ready+Mix+2",
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Ready+Mix+3",
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Ready+Mix+4"
       ]
     },
     features: {
@@ -128,12 +128,12 @@ export const products: Product[] = [
       ]
     },
     images: {
-      thumbnail: "/images/products/precast-thumb.jpg",
+      thumbnail: "https://placehold.co/400x256/0064E0/FFFFFF?text=Precast+Concrete",
       gallery: [
-        "/images/products/precast-1.jpg",
-        "/images/products/precast-2.jpg",
-        "/images/products/precast-3.jpg",
-        "/images/products/precast-4.jpg"
+        "https://placehold.co/800x600/0064E0/FFFFFF?text=Precast+1",
+        "https://placehold.co/800x600/0064E0/FFFFFF?text=Precast+2",
+        "https://placehold.co/800x600/0064E0/FFFFFF?text=Precast+3",
+        "https://placehold.co/800x600/0064E0/FFFFFF?text=Precast+4"
       ]
     },
     features: {
@@ -205,12 +205,12 @@ export const products: Product[] = [
       ]
     },
     images: {
-      thumbnail: "/images/products/grouting-thumb.jpg",
+      thumbnail: "https://placehold.co/400x256/1C2B33/FFFFFF?text=Grouting+Agent",
       gallery: [
-        "/images/products/grouting-1.jpg",
-        "/images/products/grouting-2.jpg",
-        "/images/products/grouting-3.jpg",
-        "/images/products/grouting-4.jpg"
+        "https://placehold.co/800x600/1C2B33/FFFFFF?text=Grouting+1",
+        "https://placehold.co/800x600/1C2B33/FFFFFF?text=Grouting+2",
+        "https://placehold.co/800x600/1C2B33/FFFFFF?text=Grouting+3",
+        "https://placehold.co/800x600/1C2B33/FFFFFF?text=Grouting+4"
       ]
     },
     features: {
@@ -282,12 +282,12 @@ export const products: Product[] = [
       ]
     },
     images: {
-      thumbnail: "/images/products/waterproof-thumb.jpg",
+      thumbnail: "https://placehold.co/400x256/0082FB/FFFFFF?text=Waterproof+Agent",
       gallery: [
-        "/images/products/waterproof-1.jpg",
-        "/images/products/waterproof-2.jpg",
-        "/images/products/waterproof-3.jpg",
-        "/images/products/waterproof-4.jpg"
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Waterproof+1",
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Waterproof+2",
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Waterproof+3",
+        "https://placehold.co/800x600/0082FB/FFFFFF?text=Waterproof+4"
       ]
     },
     features: {

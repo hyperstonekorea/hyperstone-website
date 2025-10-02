@@ -34,6 +34,7 @@ const AnimatedSection = ({
     rootMargin: '0px 0px -10% 0px'
   }), [threshold, triggerOnce]);
   
+  // Use isInView with SSR-safe default
   const isInView = useInView(ref, intersectionOptions);
 
   // Memoize animations to prevent recreation on every render

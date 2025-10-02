@@ -138,6 +138,22 @@ export const optimizedVariants: Record<string, Variants> = {
         duration: 0.2,
       }
     }
+  },
+  
+  // Mobile-optimized variants
+  mobileScale: {
+    initial: { 
+      opacity: 0,
+      scale: 0.95,
+    },
+    animate: { 
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }
+    }
   }
 };
 
@@ -148,10 +164,14 @@ export function useOptimizedAnimation({
   delay = 0,
   respectMotionPreference = true,
 }: UseOptimizedAnimationProps = {}): OptimizedAnimationHook {
+  // Initialize with SSR-safe defaults
   const [isMobile, setIsMobile] = useState(false);
   const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
 
   useEffect(() => {
+    // Skip if not in browser
+    if (typeof window === 'undefined') return;
+
     // Detect mobile device
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -159,7 +179,7 @@ export function useOptimizedAnimation({
 
     // Check for reduced motion preference
     const checkReducedMotion = () => {
-      if (respectMotionPreference && typeof window !== 'undefined') {
+      if (respectMotionPreference) {
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
         setShouldReduceMotion(mediaQuery.matches);
         
@@ -173,7 +193,7 @@ export function useOptimizedAnimation({
     };
 
     checkMobile();
-    checkReducedMotion();
+    const cleanup = checkReducedMotion();
 
     const handleResize = () => {
       checkMobile();
@@ -182,6 +202,7 @@ export function useOptimizedAnimation({
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (cleanup) cleanup();
     };
   }, [respectMotionPreference]);
 

@@ -34,6 +34,13 @@ export function useBackgroundConfig(
 
   // Fetch configuration from API
   const fetchConfig = useCallback(async () => {
+    // Skip fetch during SSR
+    if (typeof window === 'undefined') {
+      setConfig(defaultConfig);
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
@@ -65,10 +72,17 @@ export function useBackgroundConfig(
     }
   }, [sectionId, defaultConfig]);
 
-  // Initial load
+  // Initial load - only on client side
   useEffect(() => {
-    fetchConfig();
-  }, [fetchConfig]);
+    // Only fetch if we're in the browser
+    if (typeof window !== 'undefined') {
+      fetchConfig();
+    } else {
+      // On server, use default config immediately
+      setConfig(defaultConfig);
+      setLoading(false);
+    }
+  }, [fetchConfig, defaultConfig]);
 
   // Listen for configuration updates (for real-time updates from admin panel)
   useEffect(() => {
@@ -116,6 +130,13 @@ export function useAllBackgroundConfigs() {
   const [error, setError] = useState<string | null>(null);
 
   const fetchAllConfigs = useCallback(async () => {
+    // Skip fetch during SSR
+    if (typeof window === 'undefined') {
+      setConfigs([]);
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
@@ -138,7 +159,13 @@ export function useAllBackgroundConfigs() {
   }, []);
 
   useEffect(() => {
-    fetchAllConfigs();
+    // Only fetch on client side
+    if (typeof window !== 'undefined') {
+      fetchAllConfigs();
+    } else {
+      setConfigs([]);
+      setLoading(false);
+    }
   }, [fetchAllConfigs]);
 
   return {
