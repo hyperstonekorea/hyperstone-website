@@ -24,7 +24,8 @@
     "test:quick-start": "node scripts/quick-start-test.js",
     "deploy:checklist": "node scripts/deployment-checklist.js",
     "deploy:vercel": "npm run deploy:checklist && echo 'Ready for Vercel deployment!'",
-    "deploy:verify": "node scripts/verify-deployment.js"
+    "deploy:verify": "node scripts/verify-deployment.js",
+    "deploy:diagnose": "node scripts/diagnose-vercel.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

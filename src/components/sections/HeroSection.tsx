@@ -47,7 +47,11 @@ export function HeroSection({ locale }: HeroSectionProps) {
             variants={isMobile ? optimizedVariants.mobileScale : optimizedVariants.scaleIn}
             initial="initial"
             animate="animate"
-            transition={animationConfig}
+            transition={{
+              duration: animationConfig.duration,
+              ease: animationConfig.ease as any,
+              delay: animationConfig.delay
+            }}
             className="mb-8"
             style={hardwareAcceleration}
           >
