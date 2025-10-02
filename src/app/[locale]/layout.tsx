@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { generatePageMetadata } from '@/lib/metadata';
-import { generateOrganizationSchema, generateWebsiteSchema } from '@/lib/structured-data';
-import StructuredData from '@/components/seo/StructuredData';
-import { PerformanceMonitor } from '@/components/ui/PerformanceMonitor';
 import { Locale } from '@/types';
 import "../globals.css";
 
@@ -37,10 +31,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   
-  return generatePageMetadata({
-    locale: locale as Locale,
-    url: locale === 'ko' ? '/' : '/en',
-  });
+  return {
+    title: `HYPERSTONE - ${locale === 'ko' ? '건설업계의 혁신적인 솔루션' : 'Innovative Construction Solutions'}`,
+    description: locale === 'ko' 
+      ? 'DULITE 브랜드로 최고 품질의 콘크리트 제품을 제공하는 HYPERSTONE'
+      : 'HYPERSTONE provides the highest quality concrete products under the DULITE brand'
+  };
 }
 
 export default async function LocaleLayout({
@@ -57,28 +53,14 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
-
-  // Generate structured data
-  const organizationSchema = generateOrganizationSchema(locale as Locale);
-  const websiteSchema = generateWebsiteSchema(locale as Locale);
-
   return (
     <html lang={locale}>
-      <head>
-        <StructuredData data={[organizationSchema, websiteSchema]} />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <PerformanceMonitor />
-          <div className="mobile-optimized touch-device">
-            {children}
-          </div>
-        </NextIntlClientProvider>
+        <div className="mobile-optimized touch-device">
+          {children}
+        </div>
       </body>
     </html>
   );
