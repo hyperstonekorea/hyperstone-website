@@ -1,68 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+/**
+ * Admin authentication hook for logout functionality
+ * 
+ * This hook provides a centralized logout function that:
+ * - Clears the session token from sessionStorage
+ * - Calls the logout API to clear HTTP-only cookies
+ * - Redirects to the login page
+ * 
+ * Note: Login and authentication checking are now handled directly
+ * in the /adminLogin and /admin page components respectively.
+ */
 
-interface AdminAuthState {
-  isAuthenticated: boolean;
-  isLoading: boolean;
-  login: (password: string) => Promise<boolean>;
+interface AdminAuthHook {
   logout: () => void;
 }
 
-export function useAdminAuth(): AdminAuthState {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Only run on client side
-    if (typeof window === 'undefined') {
-      setIsLoading(false);
-      return;
-    }
-
-    // Check if user is already authenticated on mount
-    try {
-      const token = sessionStorage.getItem('admin-token');
-      if (token) {
-        setIsAuthenticated(true);
-      }
-    } catch (error) {
-      console.error('Error accessing sessionStorage:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  const login = async (password: string): Promise<boolean> => {
-    // Only run on client side
-    if (typeof window === 'undefined') {
-      return false;
-    }
-
-    try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ password }),
-      });
-
-      const data = await response.json();
-
-      if (data.success && data.token) {
-        sessionStorage.setItem('admin-token', data.token);
-        setIsAuthenticated(true);
-        return true;
-      }
-
-      return false;
-    } catch (error) {
-      console.error('Login error:', error);
-      return false;
-    }
-  };
-
+export function useAdminAuth(): AdminAuthHook {
   const logout = () => {
     // Only run on client side
     if (typeof window === 'undefined') {
@@ -70,20 +24,28 @@ export function useAdminAuth(): AdminAuthState {
     }
 
     try {
+      // Clear session token from sessionStorage
       sessionStorage.removeItem('admin-token');
-      setIsAuthenticated(false);
       
       // Clear the HTTP-only cookie by making a request to logout endpoint
-      fetch('/api/admin/logout', { method: 'POST' }).catch(console.error);
+      fetch('/api/admin/logout', { method: 'POST' })
+        .then(() => {
+          // Redirect to login page after successful logout
+          window.location.href = '/adminLogin';
+        })
+        .catch((error) => {
+          console.error('Logout API error:', error);
+          // Still redirect even if API call fails
+          window.location.href = '/adminLogin';
+        });
     } catch (error) {
       console.error('Logout error:', error);
+      // Redirect to login page even on error
+      window.location.href = '/adminLogin';
     }
   };
 
   return {
-    isAuthenticated,
-    isLoading,
-    login,
     logout,
   };
 }

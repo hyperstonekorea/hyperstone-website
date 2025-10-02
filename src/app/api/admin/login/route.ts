@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
         maxAge: 60 * 60 * 24, // 24 hours
-        path: '/admin'
+        path: '/' // Changed from '/admin' to work across all admin routes
       });
 
       return response;

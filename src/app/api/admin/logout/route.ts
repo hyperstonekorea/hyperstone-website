@@ -13,7 +13,7 @@ export async function POST() {
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 0, // Expire immediately
-      path: '/admin'
+      path: '/' // Changed from '/admin' to match login route
     });
 
     return response;
