@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { Locale } from '@/types';
 import { SectionErrorBoundary } from '@/components/SectionErrorBoundary';
+import { TranslationsProvider } from '@/components/providers/TranslationsProvider';
 
 // Dynamic imports with SSR disabled to prevent hydration issues
 const HeroSection = dynamic(
@@ -49,22 +50,24 @@ export default function Home() {
   const locale = (params?.locale as Locale) || 'ko';
 
   return (
-    <main>
-      <SectionErrorBoundary sectionName="Hero">
-        <HeroSection locale={locale} />
-      </SectionErrorBoundary>
+    <TranslationsProvider locale={locale}>
+      <main>
+        <SectionErrorBoundary sectionName="Hero">
+          <HeroSection locale={locale} />
+        </SectionErrorBoundary>
 
-      <SectionErrorBoundary sectionName="About">
-        <AboutSection locale={locale} />
-      </SectionErrorBoundary>
+        <SectionErrorBoundary sectionName="About">
+          <AboutSection locale={locale} />
+        </SectionErrorBoundary>
 
-      <SectionErrorBoundary sectionName="Products">
-        <ProductsSection locale={locale} />
-      </SectionErrorBoundary>
+        <SectionErrorBoundary sectionName="Products">
+          <ProductsSection locale={locale} />
+        </SectionErrorBoundary>
 
-      <SectionErrorBoundary sectionName="Contact">
-        <ContactSection locale={locale} />
-      </SectionErrorBoundary>
-    </main>
+        <SectionErrorBoundary sectionName="Contact">
+          <ContactSection locale={locale} />
+        </SectionErrorBoundary>
+      </main>
+    </TranslationsProvider>
   );
 }
