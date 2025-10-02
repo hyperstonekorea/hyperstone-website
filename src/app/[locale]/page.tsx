@@ -6,6 +6,14 @@ interface PageProps {
   }>;
 }
 
+// Generate static params for supported locales
+export async function generateStaticParams() {
+  return [
+    { locale: 'ko' },
+    { locale: 'en' }
+  ];
+}
+
 export default async function Home({ params }: PageProps) {
   const { locale } = await params;
 

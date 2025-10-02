@@ -22,6 +22,14 @@ const geistMono = Geist_Mono({
 
 const locales = ['ko', 'en'];
 
+// Generate static params for supported locales
+export async function generateStaticParams() {
+  return [
+    { locale: 'ko' },
+    { locale: 'en' }
+  ];
+}
+
 export async function generateMetadata({
   params,
 }: {
