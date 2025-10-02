@@ -4,7 +4,8 @@
     "about": "About",
     "products": "Products",
     "contact": "Contact",
-    "language": "Language"
+    "language": "Language",
+    "backToHome": "Back to Home"
   },
   "hero": {
     "title": "HYPERSTONE",
@@ -131,6 +132,10 @@
     "error": "An error occurred",
     "retry": "Retry",
     "close": "Close"
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDescription": "The page you requested does not exist or has been moved."
   },
   "seo": {
     "home": {
