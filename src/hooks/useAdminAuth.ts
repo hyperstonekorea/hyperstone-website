@@ -14,15 +14,31 @@ export function useAdminAuth(): AdminAuthState {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is already authenticated on mount
-    const token = sessionStorage.getItem('admin-token');
-    if (token) {
-      setIsAuthenticated(true);
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      setIsLoading(false);
+      return;
     }
-    setIsLoading(false);
+
+    // Check if user is already authenticated on mount
+    try {
+      const token = sessionStorage.getItem('admin-token');
+      if (token) {
+        setIsAuthenticated(true);
+      }
+    } catch (error) {
+      console.error('Error accessing sessionStorage:', error);
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   const login = async (password: string): Promise<boolean> => {
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
     try {
       const response = await fetch('/api/admin/login', {
         method: 'POST',
@@ -48,11 +64,20 @@ export function useAdminAuth(): AdminAuthState {
   };
 
   const logout = () => {
-    sessionStorage.removeItem('admin-token');
-    setIsAuthenticated(false);
-    
-    // Clear the HTTP-only cookie by making a request to logout endpoint
-    fetch('/api/admin/logout', { method: 'POST' }).catch(console.error);
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    try {
+      sessionStorage.removeItem('admin-token');
+      setIsAuthenticated(false);
+      
+      // Clear the HTTP-only cookie by making a request to logout endpoint
+      fetch('/api/admin/logout', { method: 'POST' }).catch(console.error);
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
   };
 
   return {
