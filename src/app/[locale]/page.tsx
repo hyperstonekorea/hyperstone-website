@@ -1,8 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Locale } from '@/types';
 import { useParams } from 'next/navigation';
+import { Locale } from '@/types';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { AboutSection } from '@/components/sections/AboutSection';
+import { ProductsSection } from '@/components/sections/ProductsSection';
+import { ContactSection } from '@/components/sections/ContactSection';
 
 // Force dynamic rendering to avoid SSR issues
 export const dynamic = 'force-dynamic';
@@ -11,30 +15,12 @@ export default function Home() {
   const params = useParams();
   const locale = (params?.locale as Locale) || 'ko';
   const [mounted, setMounted] = useState(false);
-  const [sections, setSections] = useState<any>(null);
 
   useEffect(() => {
-    // Dynamically import sections only on client side
-    Promise.all([
-      import('@/components/sections/HeroSection'),
-      import('@/components/sections/AboutSection'),
-      import('@/components/sections/ProductsSection'),
-      import('@/components/sections/ContactSection'),
-    ]).then(([hero, about, products, contact]) => {
-      setSections({
-        HeroSection: hero.HeroSection,
-        AboutSection: about.AboutSection,
-        ProductsSection: products.ProductsSection,
-        ContactSection: contact.ContactSection,
-      });
-      setMounted(true);
-    }).catch((error) => {
-      console.error('Error loading sections:', error);
-      setMounted(true);
-    });
+    setMounted(true);
   }, []);
 
-  if (!mounted || !sections) {
+  if (!mounted) {
     return (
       <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
         <div className="text-center">
@@ -49,8 +35,6 @@ export default function Home() {
       </main>
     );
   }
-
-  const { HeroSection, AboutSection, ProductsSection, ContactSection } = sections;
 
   return (
     <main>
