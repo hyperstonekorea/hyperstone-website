@@ -4,6 +4,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 const nextConfig: NextConfig = {
+  // Enable source maps for debugging production errors
+  productionBrowserSourceMaps: true,
+  
   // Production build optimizations
   // output: 'standalone', // Removed - not needed for Vercel deployment
   
