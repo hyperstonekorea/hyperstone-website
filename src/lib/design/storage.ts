@@ -70,6 +70,17 @@ export class DesignStorageService {
   }
 
   /**
+   * Save a history entry (public method for external use)
+   */
+  async saveHistoryEntry(
+    settings: DesignSettings,
+    author: string,
+    description?: string
+  ): Promise<void> {
+    await this.createHistoryEntry(settings, author, description);
+  }
+
+  /**
    * Create a history entry for the current settings
    */
   private async createHistoryEntry(
