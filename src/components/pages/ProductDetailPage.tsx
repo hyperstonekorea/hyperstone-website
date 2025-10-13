@@ -9,6 +9,8 @@ import { products } from '@/data/products';
 import { Button } from '@/components/ui/Button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { OptimizedImage, imageSizes } from '@/components/ui/OptimizedImage';
+import { useDesignSettings } from '@/hooks/useDesignSettings';
+import { applyColorValue, applyBackgroundStyles, applyFontStyles } from '@/lib/design/apply-styles';
 
 interface ProductDetailPageProps {
   product: Product;
@@ -18,19 +20,70 @@ interface ProductDetailPageProps {
 export default function ProductDetailPage({ product, locale }: ProductDetailPageProps) {
   const t = useTranslations('product');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const { settings, loading } = useDesignSettings();
 
   // Get related products (exclude current product)
   const relatedProducts = products.filter(p => p.id !== product.id).slice(0, 3);
 
+  // Get product-specific design settings or use defaults
+  const productConfig = settings.productDetails[product.slug];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-gray-600">Loading...</div>
+      </div>
+    );
+  }
+
+  // Hero background styles
+  const heroBackgroundStyles = productConfig 
+    ? applyBackgroundStyles(productConfig.hero.background)
+    : { background: 'linear-gradient(to right, #2563eb, #1e40af)' };
+
+  const heroOverlayStyles = productConfig
+    ? {
+        backgroundColor: productConfig.hero.overlay.color,
+        opacity: productConfig.hero.overlay.opacity
+      }
+    : { backgroundColor: 'rgba(0, 0, 0, 0.3)', opacity: 0.3 };
+
+  // Content styles
+  const contentBackgroundStyles = productConfig
+    ? applyBackgroundStyles(productConfig.content.background)
+    : { backgroundColor: '#f9fafb' };
+
+  const headingColor = productConfig
+    ? applyColorValue(productConfig.content.colors.heading)
+    : '#111827';
+
+  const bodyColor = productConfig
+    ? applyColorValue(productConfig.content.colors.body)
+    : '#374151';
+
+  const accentColor = productConfig
+    ? applyColorValue(productConfig.content.colors.accent)
+    : '#2563eb';
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={contentBackgroundStyles}>
       {/* Hero Section */}
       <AnimatedSection>
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-          <div className="container mx-auto px-4">
+        <div 
+          className="text-white py-16 relative overflow-hidden"
+          style={heroBackgroundStyles}
+        >
+          {productConfig && (
+            <div 
+              className="absolute inset-0"
+              style={heroOverlayStyles}
+            />
+          )}
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <motion.h1 
                 className="text-4xl md:text-5xl font-bold mb-4"
+                style={productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -39,6 +92,7 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
               </motion.h1>
               <motion.p 
                 className="text-xl md:text-2xl opacity-90"
+                style={productConfig ? applyFontStyles(productConfig.content.fonts.body) : {}}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -60,13 +114,18 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
               
               {/* Image Gallery */}
               <div className="space-y-4">
-                <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                <div 
+                  className="aspect-video bg-gray-200 overflow-hidden"
+                  style={{ 
+                    borderRadius: productConfig ? `${productConfig.gallery.borderRadius}px` : '0.5rem'
+                  }}
+                >
                   <OptimizedImage
                     src={product.images.gallery[selectedImageIndex]}
                     alt={product.name[locale]}
                     width={800}
                     height={450}
-                    className="w-full h-full rounded-lg"
+                    className="w-full h-full"
                     priority
                     sizes={imageSizes.detail}
                     quality={90}
@@ -74,23 +133,28 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
                 </div>
                 
                 {/* Thumbnail Gallery */}
-                <div className="grid grid-cols-4 gap-2">
+                <div 
+                  className="grid grid-cols-4"
+                  style={{ gap: productConfig ? productConfig.gallery.spacing : '0.5rem' }}
+                >
                   {product.images.gallery.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedImageIndex(index)}
-                      className={`aspect-video bg-gray-200 rounded-lg overflow-hidden border-2 transition-colors ${
-                        selectedImageIndex === index 
-                          ? 'border-blue-500' 
-                          : 'border-transparent hover:border-gray-300'
-                      }`}
+                      className="aspect-video bg-gray-200 overflow-hidden border-2 transition-colors"
+                      style={{
+                        borderRadius: productConfig ? `${productConfig.gallery.borderRadius}px` : '0.5rem',
+                        borderColor: selectedImageIndex === index 
+                          ? accentColor
+                          : 'transparent'
+                      }}
                     >
                       <OptimizedImage
                         src={image}
                         alt={`${product.name[locale]} ${index + 1}`}
                         width={200}
                         height={113}
-                        className="w-full h-full rounded-lg"
+                        className="w-full h-full"
                         sizes={imageSizes.thumbnail}
                         quality={75}
                       />
@@ -102,24 +166,52 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
               {/* Product Info */}
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h2 
+                    className="text-2xl font-bold mb-4"
+                    style={{
+                      ...(productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}),
+                      color: headingColor
+                    }}
+                  >
                     {t('overview')}
                   </h2>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p 
+                    className="leading-relaxed"
+                    style={{
+                      ...(productConfig ? applyFontStyles(productConfig.content.fonts.body) : {}),
+                      color: bodyColor
+                    }}
+                  >
                     {product.fullDescription[locale]}
                   </p>
                 </div>
 
                 {/* Key Features */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 
+                    className="text-xl font-semibold mb-3"
+                    style={{
+                      ...(productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}),
+                      color: headingColor
+                    }}
+                  >
                     {t('keyFeatures')}
                   </h3>
                   <ul className="space-y-2">
                     {product.features[locale].map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span className="text-gray-700">{feature}</span>
+                        <span 
+                          className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
+                          style={{ backgroundColor: accentColor }}
+                        ></span>
+                        <span 
+                          style={{
+                            ...(productConfig ? applyFontStyles(productConfig.content.fonts.body) : {}),
+                            color: bodyColor
+                          }}
+                        >
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -141,16 +233,55 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
 
           {/* Technical Specifications */}
           <AnimatedSection>
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-16">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div 
+              className="bg-white shadow-lg p-8 mb-16"
+              style={{
+                ...(productConfig ? applyBackgroundStyles(productConfig.sections.specifications.background) : {}),
+                borderRadius: productConfig ? `${productConfig.sections.specifications.borderRadius}px` : '0.5rem',
+                boxShadow: productConfig?.sections.specifications.shadow || '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+              }}
+            >
+              <h2 
+                className="text-2xl font-bold mb-6"
+                style={{
+                  ...(productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}),
+                  color: headingColor
+                }}
+              >
                 {t('specifications')}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {product.specifications[locale].map((spec, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-4">
-                    <div className="text-sm text-gray-600 mb-1">{spec.label}</div>
-                    <div className="text-lg font-semibold text-gray-900">
-                      {spec.value} {spec.unit && <span className="text-sm text-gray-600">{spec.unit}</span>}
+                  <div 
+                    key={index} 
+                    className="bg-gray-50 rounded-lg p-4"
+                  >
+                    <div 
+                      className="text-sm mb-1"
+                      style={{
+                        ...(productConfig ? applyFontStyles(productConfig.content.fonts.specs) : {}),
+                        color: productConfig ? applyColorValue(productConfig.content.colors.specLabel) : '#6b7280'
+                      }}
+                    >
+                      {spec.label}
+                    </div>
+                    <div 
+                      className="text-lg font-semibold"
+                      style={{
+                        ...(productConfig ? applyFontStyles(productConfig.content.fonts.specs) : {}),
+                        color: productConfig ? applyColorValue(productConfig.content.colors.specValue) : '#111827'
+                      }}
+                    >
+                      {spec.value} {spec.unit && (
+                        <span 
+                          className="text-sm"
+                          style={{
+                            color: productConfig ? applyColorValue(productConfig.content.colors.specLabel) : '#6b7280'
+                          }}
+                        >
+                          {spec.unit}
+                        </span>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -160,15 +291,44 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
 
           {/* Applications */}
           <AnimatedSection>
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-16">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div 
+              className="bg-white shadow-lg p-8 mb-16"
+              style={{
+                ...(productConfig ? applyBackgroundStyles(productConfig.sections.applications.background) : {}),
+                borderRadius: productConfig ? `${productConfig.sections.applications.borderRadius}px` : '0.5rem',
+                boxShadow: productConfig?.sections.applications.shadow || '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+              }}
+            >
+              <h2 
+                className="text-2xl font-bold mb-6"
+                style={{
+                  ...(productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}),
+                  color: headingColor
+                }}
+              >
                 {t('applications')}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {product.applications[locale].map((application, index) => (
-                  <div key={index} className="flex items-center p-4 bg-blue-50 rounded-lg">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
-                    <span className="text-gray-800">{application}</span>
+                  <div 
+                    key={index} 
+                    className="flex items-center p-4 rounded-lg"
+                    style={{
+                      backgroundColor: `${accentColor}15`
+                    }}
+                  >
+                    <div 
+                      className="w-3 h-3 rounded-full mr-3"
+                      style={{ backgroundColor: accentColor }}
+                    ></div>
+                    <span 
+                      style={{
+                        ...(productConfig ? applyFontStyles(productConfig.content.fonts.body) : {}),
+                        color: bodyColor
+                      }}
+                    >
+                      {application}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -178,8 +338,21 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
           {/* Related Products */}
           {relatedProducts.length > 0 && (
             <AnimatedSection>
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <div 
+                className="bg-white shadow-lg p-8"
+                style={{
+                  ...(productConfig ? applyBackgroundStyles(productConfig.sections.features.background) : {}),
+                  borderRadius: productConfig ? `${productConfig.sections.features.borderRadius}px` : '0.5rem',
+                  boxShadow: productConfig?.sections.features.shadow || '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                <h2 
+                  className="text-2xl font-bold mb-6"
+                  style={{
+                    ...(productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}),
+                    color: headingColor
+                  }}
+                >
                   {t('relatedProducts')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -202,10 +375,22 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
                           />
                         </div>
                         <div className="p-4">
-                          <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          <h3 
+                            className="font-semibold mb-2 transition-colors"
+                            style={{
+                              ...(productConfig ? applyFontStyles(productConfig.content.fonts.heading) : {}),
+                              color: headingColor
+                            }}
+                          >
                             {relatedProduct.name[locale]}
                           </h3>
-                          <p className="text-sm text-gray-600">
+                          <p 
+                            className="text-sm"
+                            style={{
+                              ...(productConfig ? applyFontStyles(productConfig.content.fonts.body) : {}),
+                              color: bodyColor
+                            }}
+                          >
                             {relatedProduct.shortDescription[locale]}
                           </p>
                         </div>

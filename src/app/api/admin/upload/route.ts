@@ -1,79 +1,135 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
-import { verifyAdminAuth, createUnauthorizedResponse } from '@/lib/auth-middleware';
+import { validateAdminAccess, logRequest, RATE_LIMITS } from '@/lib/auth-middleware';
+import {
+  validateImage,
+  optimizeImage,
+  getImageMetadata,
+  generateSafeFilename,
+  calculateCompressionRatio,
+  DEFAULT_IMAGE_CONFIG,
+} from '@/lib/image-utils';
 
+/**
+ * POST /api/admin/upload
+ * Upload and optimize images
+ * Requirements: 1.2, Security
+ */
 export async function POST(request: NextRequest) {
-  // Verify admin authentication
-  if (!verifyAdminAuth(request)) {
-    return createUnauthorizedResponse();
+  const startTime = Date.now();
+  
+  // Validate admin access with stricter rate limiting for uploads
+  const accessCheck = validateAdminAccess(request, RATE_LIMITS.UPLOAD_IMAGE);
+  if (!accessCheck.valid) {
+    logRequest(request, '/api/admin/upload', accessCheck.response!.status, Date.now() - startTime);
+    return accessCheck.response;
   }
 
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
-    const section = formData.get('section') as string;
+    const section = (formData.get('section') as string) || 'general';
+    const shouldOptimize = formData.get('optimize') !== 'false'; // Default to true
+    const maxWidth = parseInt(formData.get('maxWidth') as string) || DEFAULT_IMAGE_CONFIG.maxWidth;
+    const maxHeight = parseInt(formData.get('maxHeight') as string) || DEFAULT_IMAGE_CONFIG.maxHeight;
+    const quality = parseInt(formData.get('quality') as string) || DEFAULT_IMAGE_CONFIG.quality;
 
-    if (!file) {
+    // Validate image
+    const validation = validateImage(file);
+    if (!validation.valid) {
       return NextResponse.json(
-        { success: false, message: '파일이 선택되지 않았습니다.' },
+        { success: false, message: validation.error },
         { status: 400 }
       );
     }
 
-    // Validate file type
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
-    if (!allowedTypes.includes(file.type)) {
-      return NextResponse.json(
-        { success: false, message: '지원되지 않는 파일 형식입니다. (JPG, PNG, WebP, GIF만 허용)' },
-        { status: 400 }
-      );
+    // Read file buffer
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(new Uint8Array(bytes));
+
+    let finalBuffer = buffer;
+    let format = file.type.split('/')[1];
+    let width = 0;
+    let height = 0;
+    let originalSize = file.size;
+    let optimizedSize = file.size;
+
+    // Optimize image if requested
+    if (shouldOptimize) {
+      try {
+        const optimized = await optimizeImage(buffer, {
+          maxWidth,
+          maxHeight,
+          quality,
+          format: DEFAULT_IMAGE_CONFIG.outputFormat,
+        });
+        
+        finalBuffer = optimized.buffer;
+        format = optimized.format;
+        width = optimized.width;
+        height = optimized.height;
+        optimizedSize = optimized.size;
+      } catch (error) {
+        console.error('Optimization failed, using original:', error);
+        // Fall back to original if optimization fails
+      }
+    } else {
+      // Get metadata even if not optimizing
+      try {
+        const metadata = await getImageMetadata(buffer);
+        width = metadata.width;
+        height = metadata.height;
+        format = metadata.format;
+      } catch (error) {
+        console.error('Failed to read image metadata:', error);
+      }
     }
 
-    // Validate file size (max 5MB)
-    const maxSize = 5 * 1024 * 1024; // 5MB
-    if (file.size > maxSize) {
-      return NextResponse.json(
-        { success: false, message: '파일 크기가 너무 큽니다. (최대 5MB)' },
-        { status: 400 }
-      );
-    }
-
-    // Generate unique filename
-    const timestamp = Date.now();
-    const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const filename = `${section}_${timestamp}_${originalName}`;
+    // Generate filename
+    const filename = generateSafeFilename(file.name, section, format);
 
     // Create uploads directory if it doesn't exist
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
-    try {
-      await mkdir(uploadsDir, { recursive: true });
-    } catch (error) {
-      // Directory might already exist, ignore error
-    }
+    await mkdir(uploadsDir, { recursive: true });
 
     // Save file
     const filePath = path.join(uploadsDir, filename);
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    
-    await writeFile(filePath, buffer);
+    await writeFile(filePath, finalBuffer);
 
-    // Return the public URL
+    // Return the public URL and metadata
     const publicUrl = `/uploads/${filename}`;
+    const compressionRatio = calculateCompressionRatio(originalSize, optimizedSize);
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
-      message: '파일이 업로드되었습니다.',
+      message: 'Image uploaded successfully',
       url: publicUrl,
-      filename: filename
+      filename: filename,
+      metadata: {
+        width,
+        height,
+        format,
+        originalSize,
+        optimizedSize,
+        compressionRatio,
+        optimized: shouldOptimize,
+      },
     });
-
+    
+    logRequest(request, '/api/admin/upload', 200, Date.now() - startTime);
+    return response;
   } catch (error) {
     console.error('File upload error:', error);
-    return NextResponse.json(
-      { success: false, message: '파일 업로드에 실패했습니다.' },
+    const response = NextResponse.json(
+      { 
+        success: false, 
+        message: error instanceof Error ? error.message : 'File upload failed',
+      },
       { status: 500 }
     );
+    
+    logRequest(request, '/api/admin/upload', 500, Date.now() - startTime);
+    return response;
   }
 }
