@@ -105,6 +105,20 @@ export const FONT_OPTIONS: FontOption[] = [
     weights: [200, 300, 400, 500, 600, 700, 900],
     category: 'monospace',
     preview: 'The quick brown fox jumps over the lazy dog'
+  },
+  {
+    family: 'Saira Stencil One',
+    source: 'google',
+    weights: [400],
+    category: 'display',
+    preview: 'The quick brown fox jumps over the lazy dog'
+  },
+  {
+    family: 'Audiowide',
+    source: 'google',
+    weights: [400],
+    category: 'display',
+    preview: 'The quick brown fox jumps over the lazy dog'
   }
 ];
 

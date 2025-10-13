@@ -69,6 +69,7 @@ export default function FontSelector({
           <option value="sans-serif">Sans Serif</option>
           <option value="serif">Serif</option>
           <option value="monospace">Monospace</option>
+          <option value="display">Display</option>
         </select>
       </div>
 
@@ -174,14 +175,17 @@ export default function FontSelector({
       <div className="mt-4">
         <label className="block text-xs text-gray-600 mb-2">Preview</label>
         <div
-          className="p-4 border border-gray-300 rounded-lg"
+          className="p-4 border border-gray-300 rounded-lg space-y-2"
           style={{
             fontFamily: value.family,
             fontWeight: value.weight,
             fontSize: value.size.desktop
           }}
         >
-          The quick brown fox jumps over the lazy dog
+          <div>The quick brown fox jumps over the lazy dog</div>
+          <div>빠른 갈색 여우가 게으른 개를 뛰어넘습니다</div>
+          <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+          <div>0123456789 !@#$%^&*()</div>
         </div>
       </div>
     </div>
