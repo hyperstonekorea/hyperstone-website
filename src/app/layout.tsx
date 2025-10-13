@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { validateAppEnv } from '@/lib/env-validator';
 import { Loading } from '@/components/ui/Loading';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'HYPERSTONE - 건설업계의 혁신적인 솔루션',
