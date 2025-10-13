@@ -20,8 +20,8 @@ export async function POST(request: NextRequest) {
   try {
     // Validate admin access
     const authResult = await validateAdminAccess(request);
-    if (!authResult.isValid) {
-      return NextResponse.json(
+    if (!authResult.valid) {
+      return authResult.response || NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       );
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     if (action === 'migrate') {
       // Perform migration
-      const result = await migrateDesignSettings(authResult.user || 'admin');
+      const result = await migrateDesignSettings('admin');
 
       return NextResponse.json({
         success: result.success,
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       // Restore from backup
       const result = await restoreFromBackup(
         backupId,
-        authResult.user || 'admin'
+        'admin'
       );
 
       return NextResponse.json({
@@ -77,8 +77,8 @@ export async function GET(request: NextRequest) {
   try {
     // Validate admin access
     const authResult = await validateAdminAccess(request);
-    if (!authResult.isValid) {
-      return NextResponse.json(
+    if (!authResult.valid) {
+      return authResult.response || NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       );

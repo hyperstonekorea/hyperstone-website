@@ -49,10 +49,13 @@ export function HeroSection({ locale }: HeroSectionProps) {
     return 'color';
   };
 
+  // Generate section styles
+  const sectionStyles = createSectionStyles('hero', heroConfig);
+
   return (
     <>
       {/* Inject section-specific styles */}
-      <style jsx>{createSectionStyles('hero', heroConfig)}</style>
+      <style dangerouslySetInnerHTML={{ __html: sectionStyles }} />
       
       <DynamicBackground 
         sectionId="hero"

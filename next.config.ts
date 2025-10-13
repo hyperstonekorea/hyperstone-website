@@ -69,6 +69,19 @@ const nextConfig: NextConfig = {
   
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
+    // Exclude Node.js built-ins from client bundle
+    if (!isServer) {
+      config.resolve = config.resolve || {};
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        child_process: false,
+        net: false,
+        tls: false,
+        dns: false,
+      };
+    }
+    
     // Production optimizations
     if (!dev) {
       // Enable tree shaking

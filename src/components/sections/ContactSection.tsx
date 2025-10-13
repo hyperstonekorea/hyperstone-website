@@ -95,6 +95,9 @@ export function ContactSection({ locale }: ContactSectionProps) {
     return 'color';
   };
 
+  // Generate section styles
+  const sectionStyles = createSectionStyles('contact', contactConfig);
+
   const contactInfo = [
     {
       icon: PhoneIcon,
@@ -128,7 +131,7 @@ export function ContactSection({ locale }: ContactSectionProps) {
 
   return (
     <>
-      <style jsx>{createSectionStyles('contact', contactConfig)}</style>
+      <style dangerouslySetInnerHTML={{ __html: sectionStyles }} />
       
       <DynamicBackground 
         sectionId="contact"

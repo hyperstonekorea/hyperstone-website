@@ -66,9 +66,12 @@ export function AboutSection({ locale }: AboutSectionProps) {
     return 'color';
   };
 
+  // Generate section styles
+  const sectionStyles = createSectionStyles('about', aboutConfig);
+
   return (
     <>
-      <style jsx>{createSectionStyles('about', aboutConfig)}</style>
+      <style dangerouslySetInnerHTML={{ __html: sectionStyles }} />
       
       <DynamicBackground 
         sectionId="about"

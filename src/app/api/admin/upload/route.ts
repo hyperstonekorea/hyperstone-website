@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     let format = file.type.split('/')[1];
     let width = 0;
     let height = 0;
-    let originalSize = file.size;
+    const originalSize = file.size;
     let optimizedSize = file.size;
 
     // Optimize image if requested

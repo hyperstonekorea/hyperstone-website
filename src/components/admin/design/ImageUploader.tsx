@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { formatFileSize } from '@/lib/image-utils';
+import { formatFileSize } from '@/lib/image-utils-client';
 
 interface ImageUploaderProps {
   onUpload: (url: string) => void;
