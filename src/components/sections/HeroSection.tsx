@@ -85,7 +85,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
               style={hardwareAcceleration}
             >
               <h1 
-                className={`section-heading font-bold mb-4 tracking-tight ${
+                className={`section-heading brand-hyperstone mb-4 tracking-tight ${
                   isMobile ? 'text-4xl' : 'text-6xl lg:text-8xl'
                 }`}
               >

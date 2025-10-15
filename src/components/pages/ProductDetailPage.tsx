@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Product, Locale } from '@/types';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/Button';
+import { BrandText } from '@/components/ui/BrandText';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { OptimizedImage, imageSizes } from '@/components/ui/OptimizedImage';
 import { useDesignSettings } from '@/hooks/useDesignSettings';
@@ -88,7 +89,7 @@ export default function ProductDetailPage({ product, locale }: ProductDetailPage
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                {product.name[locale]}
+                <BrandText>{product.name[locale]}</BrandText>
               </motion.h1>
               <motion.p 
                 className="text-xl md:text-2xl opacity-90"

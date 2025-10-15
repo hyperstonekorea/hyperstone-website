@@ -5,12 +5,13 @@ import { motion } from 'framer-motion';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { ContactForm } from '@/components/forms/ContactForm';
 import DynamicBackground from '@/components/ui/DynamicBackground';
+import { NaverMap } from '@/components/ui/NaverMap';
 import { useDesignSettings } from '@/hooks/useDesignSettings';
 import { applyColorValue, createSectionStyles } from '@/lib/design/apply-styles';
 import { Locale } from '@/types';
-import { 
-  PhoneIcon, 
-  EnvelopeIcon, 
+import {
+  PhoneIcon,
+  EnvelopeIcon,
   MapPinIcon,
   ClockIcon,
   BuildingOfficeIcon
@@ -39,16 +40,16 @@ function ContactInfoItem({ icon: Icon, title, content, delay, accentColor, headi
         transition={{ type: "spring", stiffness: 300 }}
       >
         <div className="flex items-start space-x-4">
-          <div 
+          <div
             className="w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-            style={{ 
-              background: `linear-gradient(to bottom right, ${accentColor}, ${headingColor})` 
+            style={{
+              background: `linear-gradient(to bottom right, ${accentColor}, ${headingColor})`
             }}
           >
             <Icon className="w-6 h-6 text-white" />
           </div>
           <div className="flex-1">
-            <h4 
+            <h4
               className="text-lg font-semibold mb-2 transition-colors"
               style={{ color: headingColor }}
             >
@@ -77,7 +78,7 @@ function ContactInfoItem({ icon: Icon, title, content, delay, accentColor, headi
 export function ContactSection({ locale }: ContactSectionProps) {
   const t = useTranslations();
   const { settings, loading } = useDesignSettings();
-  
+
   // Get contact section design settings
   const contactConfig = settings.sections.contact;
 
@@ -114,7 +115,7 @@ export function ContactSection({ locale }: ContactSectionProps) {
     {
       icon: MapPinIcon,
       title: t('contact.address'),
-      content: locale === 'ko' 
+      content: locale === 'ko'
         ? ['경기도 평택시 고덕여염로 118, 610호(고덕동)', 'SBC비지니스센터 6층']
         : ['Room 610, 118, Godeokyeoyeom-ro, Pyeongtaek-si, Gyeonggi-do, Republic of Korea'],
       delay: 0.4
@@ -132,8 +133,8 @@ export function ContactSection({ locale }: ContactSectionProps) {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: sectionStyles }} />
-      
-      <DynamicBackground 
+
+      <DynamicBackground
         sectionId="contact"
         className="min-h-screen flex items-center justify-center py-20"
         fallbackConfig={{
@@ -144,160 +145,143 @@ export function ContactSection({ locale }: ContactSectionProps) {
         }}
       >
         <section id="contact" className="relative w-full">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0082FB]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0064E0]/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <AnimatedSection animation="slideUp" delay={0.1}>
-              <h2 className="section-heading text-5xl lg:text-6xl font-bold mb-6">
-                {t('contact.title')}
-              </h2>
-              <div 
-                className="w-24 h-1 mx-auto mb-8 rounded-full"
-                style={{ backgroundColor: applyColorValue(contactConfig.colors.accent) }}
-              />
-              <p className="section-body text-xl max-w-3xl mx-auto leading-relaxed">
-                {t('contact.subtitle')}
-              </p>
-            </AnimatedSection>
+          {/* Background decoration */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0082FB]/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0064E0]/5 rounded-full blur-3xl" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Contact Information */}
-            <div>
-              <AnimatedSection animation="slideLeft" delay={0.2}>
-                <h3 className="section-heading text-3xl font-bold mb-8">
-                  {t('contact.info.title')}
-                </h3>
-              </AnimatedSection>
-              
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <ContactInfoItem
-                    key={index}
-                    icon={info.icon}
-                    title={info.title}
-                    content={info.content}
-                    delay={info.delay}
-                    accentColor={applyColorValue(contactConfig.colors.accent)}
-                    headingColor={applyColorValue(contactConfig.colors.heading)}
-                    textColor={applyColorValue(contactConfig.colors.text)}
-                  />
-                ))}
-              </div>
-
-              {/* Company Information */}
-              <AnimatedSection animation="slideUp" delay={0.6}>
-                <div 
-                  className="mt-8 p-6 rounded-xl text-white"
-                  style={{ 
-                    background: `linear-gradient(to right, ${applyColorValue(contactConfig.colors.accent)}, ${applyColorValue(contactConfig.colors.heading)})` 
-                  }}
-                >
-                  <div className="flex items-center mb-4">
-                    <BuildingOfficeIcon className="w-6 h-6 mr-3" />
-                    <h4 className="text-lg font-semibold">HYPERSTONE</h4>
-                  </div>
-                  <div className="space-y-2 text-sm opacity-90">
-                    <p>{t('footer.businessNumber')}: 123-45-67890</p>
-                    <p>{t('footer.ceo')}: {locale === 'ko' ? '김대표' : 'CEO Kim'}</p>
-                    <p>{t('contact.established')}: 2024</p>
-                  </div>
-                </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <AnimatedSection animation="slideUp" delay={0.1}>
+                <h2 className="section-heading text-5xl lg:text-6xl font-bold mb-6">
+                  {t('contact.title')}
+                </h2>
+                <div
+                  className="w-24 h-1 mx-auto mb-8 rounded-full"
+                  style={{ backgroundColor: applyColorValue(contactConfig.colors.accent) }}
+                />
+                <p className="section-body text-xl max-w-3xl mx-auto leading-relaxed">
+                  {t('contact.subtitle')}
+                </p>
               </AnimatedSection>
             </div>
 
-            {/* Contact Form and Map */}
-            <div className="space-y-8">
-              {/* Contact Form */}
-              <AnimatedSection animation="slideRight" delay={0.3}>
-                <ContactForm locale={locale} />
-              </AnimatedSection>
-
-              {/* Map Placeholder */}
-              <AnimatedSection animation="slideUp" delay={0.5}>
-                <div className="bg-white p-6 rounded-2xl shadow-xl">
-                  <h3 
-                    className="text-xl font-bold mb-4"
-                    style={{ color: applyColorValue(contactConfig.colors.heading) }}
-                  >
-                    {t('contact.location')}
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Contact Information */}
+              <div>
+                <AnimatedSection animation="slideLeft" delay={0.2}>
+                  <h3 className="section-heading text-3xl font-bold mb-8">
+                    {t('contact.info.title')}
                   </h3>
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                    <div className="text-center" style={{ color: applyColorValue(contactConfig.colors.text) }}>
-                      <MapPinIcon 
-                        className="w-12 h-12 mx-auto mb-4"
-                        style={{ color: applyColorValue(contactConfig.colors.accent) }}
-                      />
-                      <p 
-                        className="text-lg font-medium mb-2"
-                        style={{ color: applyColorValue(contactConfig.colors.heading) }}
-                      >
-                        {locale === 'ko' ? '지도가 여기에 표시됩니다' : 'Map will be displayed here'}
-                      </p>
-                      <p className="text-sm">
-                        {locale === 'ko' 
-                          ? 'Google Maps 또는 Naver Map 연동 예정' 
-                          : 'Google Maps or Naver Map integration coming soon'
-                        }
-                      </p>
+                </AnimatedSection>
+
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <ContactInfoItem
+                      key={index}
+                      icon={info.icon}
+                      title={info.title}
+                      content={info.content}
+                      delay={info.delay}
+                      accentColor={applyColorValue(contactConfig.colors.accent)}
+                      headingColor={applyColorValue(contactConfig.colors.heading)}
+                      textColor={applyColorValue(contactConfig.colors.text)}
+                    />
+                  ))}
+                </div>
+
+                {/* Company Information */}
+                <AnimatedSection animation="slideUp" delay={0.6}>
+                  <div
+                    className="mt-8 p-6 rounded-xl text-white"
+                    style={{
+                      background: `linear-gradient(to right, ${applyColorValue(contactConfig.colors.accent)}, ${applyColorValue(contactConfig.colors.heading)})`
+                    }}
+                  >
+                    <div className="flex items-center mb-4">
+                      <BuildingOfficeIcon className="w-6 h-6 mr-3" />
+                      <h4 className="text-lg font-semibold">HYPERSTONE</h4>
+                    </div>
+                    <div className="space-y-2 text-sm opacity-90">
+                      <p>{t('footer.businessNumber')}: 336-87-03585</p>
+                      <p>{t('footer.ceo')}: {locale === 'ko' ? '심철훈' : 'SHIM CHUL HUN'}</p>
+                      <p>{t('contact.established')}: 2025.09.30</p>
                     </div>
                   </div>
-                </div>
-              </AnimatedSection>
-            </div>
-          </div>
+                </AnimatedSection>
+              </div>
 
-          {/* Call to Action */}
-          <AnimatedSection animation="fadeIn" delay={0.8}>
-            <div className="mt-16 text-center bg-white p-8 lg:p-12 rounded-2xl shadow-xl">
-              <h3 
-                className="text-2xl lg:text-3xl font-bold mb-4"
-                style={{ color: applyColorValue(contactConfig.colors.heading) }}
-              >
-                {t('contact.cta.title')}
-              </h3>
-              <p 
-                className="mb-6 max-w-2xl mx-auto"
-                style={{ color: applyColorValue(contactConfig.colors.text) }}
-              >
-                {t('contact.cta.description')}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.a
-                  href="tel:+82-2-1234-5678"
-                  className="inline-flex items-center justify-center px-6 py-3 text-white rounded-lg font-medium transition-colors"
-                  style={{ 
-                    backgroundColor: applyColorValue(contactConfig.colors.accent)
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <PhoneIcon className="w-5 h-5 mr-2" />
-                  {t('contact.callNow')}
-                </motion.a>
-                <motion.a
-                  href="mailto:info@hyperstone.co.kr"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 rounded-lg font-medium transition-colors"
-                  style={{ 
-                    borderColor: applyColorValue(contactConfig.colors.accent),
-                    color: applyColorValue(contactConfig.colors.accent)
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <EnvelopeIcon className="w-5 h-5 mr-2" />
-                  {t('contact.sendEmail')}
-                </motion.a>
+              {/* Contact Form and Map */}
+              <div className="space-y-8">
+                {/* Contact Form */}
+                <AnimatedSection animation="slideRight" delay={0.3}>
+                  <ContactForm locale={locale} />
+                </AnimatedSection>
+
+                {/* Naver Map */}
+                <AnimatedSection animation="slideUp" delay={0.5}>
+                  <div className="bg-white p-6 rounded-2xl shadow-xl">
+                    <h3
+                      className="text-xl font-bold mb-4"
+                      style={{ color: applyColorValue(contactConfig.colors.heading) }}
+                    >
+                      {t('contact.location')}
+                    </h3>
+                    <div className="w-full h-80 rounded-lg overflow-hidden">
+                      <NaverMap address="고덕여염로 118" />
+                    </div>
+                  </div>
+                </AnimatedSection>
               </div>
             </div>
-          </AnimatedSection>
-        </div>
+
+            {/* Call to Action */}
+            <AnimatedSection animation="fadeIn" delay={0.8}>
+              <div className="mt-16 text-center bg-white p-8 lg:p-12 rounded-2xl shadow-xl">
+                <h3
+                  className="text-2xl lg:text-3xl font-bold mb-4"
+                  style={{ color: applyColorValue(contactConfig.colors.heading) }}
+                >
+                  {t('contact.cta.title')}
+                </h3>
+                <p
+                  className="mb-6 max-w-2xl mx-auto"
+                  style={{ color: applyColorValue(contactConfig.colors.text) }}
+                >
+                  {t('contact.cta.description')}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <motion.a
+                    href="tel:+82-2-1234-5678"
+                    className="inline-flex items-center justify-center px-6 py-3 text-white rounded-lg font-medium transition-colors"
+                    style={{
+                      backgroundColor: applyColorValue(contactConfig.colors.accent)
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <PhoneIcon className="w-5 h-5 mr-2" />
+                    {t('contact.callNow')}
+                  </motion.a>
+                  <motion.a
+                    href="mailto:info@hyperstone.co.kr"
+                    className="inline-flex items-center justify-center px-6 py-3 border-2 rounded-lg font-medium transition-colors"
+                    style={{
+                      borderColor: applyColorValue(contactConfig.colors.accent),
+                      color: applyColorValue(contactConfig.colors.accent)
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <EnvelopeIcon className="w-5 h-5 mr-2" />
+                    {t('contact.sendEmail')}
+                  </motion.a>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </section>
       </DynamicBackground>
     </>

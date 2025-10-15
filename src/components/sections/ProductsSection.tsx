@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { Button } from '@/components/ui/Button';
+import { BrandText } from '@/components/ui/BrandText';
 import DynamicBackground from '@/components/ui/DynamicBackground';
 import { OptimizedImage, imageSizes } from '@/components/ui/OptimizedImage';
 import { useDesignSettings } from '@/hooks/useDesignSettings';
@@ -90,7 +91,7 @@ function ProductCard({ product, locale, index, cardConfig }: ProductCardProps) {
                 color: applyColorValue(cardConfig.colors.title)
               }}
             >
-              {getLocalizedText(product.name, locale)}
+              <BrandText>{getLocalizedText(product.name, locale)}</BrandText>
             </h3>
             
             <p 
@@ -293,11 +294,11 @@ export function ProductsSection({ locale }: ProductsSectionProps) {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3" />
-                    {products[0].name[locale]}
+                    <BrandText>{products[0].name[locale]}</BrandText>
                   </li>
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3" />
-                    {products[1].name[locale]}
+                    <BrandText>{products[1].name[locale]}</BrandText>
                   </li>
                 </ul>
               </div>
@@ -317,11 +318,11 @@ export function ProductsSection({ locale }: ProductsSectionProps) {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3" />
-                    {products[2].name[locale]}
+                    <BrandText>{products[2].name[locale]}</BrandText>
                   </li>
                   <li className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3" />
-                    {products[3].name[locale]}
+                    <BrandText>{products[3].name[locale]}</BrandText>
                   </li>
                 </ul>
               </div>
