@@ -102,29 +102,29 @@ export function ContactSection({ locale }: ContactSectionProps) {
     {
       icon: PhoneIcon,
       title: t('contact.phone'),
-      content: '+82-2-1234-5678',
+      content: '010-8900-5863',
       delay: 0.2
     },
     {
       icon: EnvelopeIcon,
       title: t('contact.email'),
-      content: 'info@hyperstone.co.kr',
+      content: 'hyperstone@hyperstone.co.kr',
       delay: 0.3
     },
     {
       icon: MapPinIcon,
       title: t('contact.address'),
       content: locale === 'ko' 
-        ? ['서울특별시 강남구 테헤란로 123', '하이퍼스톤 빌딩 10층']
-        : ['10th Floor, Hyperstone Building', '123 Teheran-ro, Gangnam-gu, Seoul'],
+        ? ['경기도 평택시 고덕여염로 118, 610호(고덕동)', 'SBC비지니스센터 6층']
+        : ['Room 610, 118, Godeokyeoyeom-ro, Pyeongtaek-si, Gyeonggi-do, Republic of Korea'],
       delay: 0.4
     },
     {
       icon: ClockIcon,
       title: t('contact.hours'),
       content: locale === 'ko'
-        ? ['평일: 09:00 - 18:00', '토요일: 09:00 - 13:00', '일요일 및 공휴일 휴무']
-        : ['Weekdays: 09:00 - 18:00', 'Saturday: 09:00 - 13:00', 'Closed on Sundays and holidays'],
+        ? ['평일: 09:00 - 18:00', '주말 및 공휴일 휴무']
+        : ['Weekdays: 09:00 - 18:00', 'Closed on weekends and holidays'],
       delay: 0.5
     }
   ];
