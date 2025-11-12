@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Effects Test - HYPERSTONE</title>
+  
+  <!-- Google Fonts - Audiowide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 p-8">
+  <div class="container mx-auto max-w-6xl">
+    <h1 class="text-4xl font-bold mb-8 text-center brand-text" style="color: #0082FB;">
+      Hover Effects Test
+    </h1>
+    
+    <!-- Navigation Links Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Navigation Links</h2>
+      <div class="flex space-x-6">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link active">About (Active)</a>
+        <a href="#" class="nav-link">Products</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">✓ Should show underline animation and color change on hover</p>
+    </section>
+    
+    <!-- Buttons Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Buttons</h2>
+      <div class="flex flex-wrap gap-4">
+        <button class="btn-primary">Primary Button</button>
+        <button class="btn-secondary">Secondary Button</button>
+        <button id="lang-toggle" class="px-4 py-2">Language Toggle</button>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">✓ Should lift up, change color, and show shadow on hover</p>
+    </section>
+    
+    <!-- Product Cards Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Product Cards</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+          <img src="https://placehold.co/400x256/0082FB/FFFFFF?text=Product+1" alt="Product 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 brand-text" style="color: #0082FB;">DULITE Ready Mix Concrete</h3>
+            <p class="text-gray-600 mb-4">고품질 레미콘으로 건설 현장의 효율성을 극대화합니다.</p>
+            <button class="btn-primary">Learn More</button>
+          </div>
+        </div>
+        
+        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md fade-in">
+          <img src="https://placehold.co/400x256/0064E0/FFFFFF?text=Product+2" alt="Product 2" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 brand-text" style="color: #0082FB;">DULITE Precast Concrete</h3>
+            <p class="text-gray-600 mb-4">정밀하게 제작된 프리캐스트 콘크리트 제품입니다.</p>
+            <button class="btn-primary">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">✓ Should lift up, scale slightly, show blue shadow, and zoom image on hover</p>
+    </section>
+    
+    <!-- Cards Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Generic Cards</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card bg-white p-6 rounded-lg shadow">
+          <div class="icon mb-4">
+            <svg class="w-12 h-12 mx-auto" style="color: #0082FB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-center mb-2">Innovation</h3>
+          <p class="text-gray-600 text-center">혁신적인 기술과 솔루션</p>
+        </div>
+        
+        <div class="card bg-white p-6 rounded-lg shadow">
+          <div class="icon mb-4">
+            <svg class="w-12 h-12 mx-auto" style="color: #0082FB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-center mb-2">Quality</h3>
+          <p class="text-gray-600 text-center">최고 품질 보증</p>
+        </div>
+        
+        <div class="card bg-white p-6 rounded-lg shadow">
+          <div class="icon mb-4">
+            <svg class="w-12 h-12 mx-auto" style="color: #0082FB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-center mb-2">Excellence</h3>
+          <p class="text-gray-600 text-center">탁월한 서비스</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">✓ Should lift up and show shadow on hover. Icons should scale up.</p>
+    </section>
+    
+    <!-- Contact Cards Test -->
+    <section class="mb-12 p-6 rounded-lg shadow" style="background-color: #1C2B33;">
+      <h2 class="text-2xl font-bold mb-4 text-white">Contact Cards</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="contact-card bg-white bg-opacity-10 p-6 rounded-lg text-white text-center">
+          <svg class="w-12 h-12 mx-auto mb-4" style="color: #0082FB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          <h3 class="text-lg font-bold mb-2">Phone</h3>
+          <a href="tel:010-8900-5863" class="hover:text-blue-400">010-8900-5863</a>
+        </div>
+        
+        <div class="contact-card bg-white bg-opacity-10 p-6 rounded-lg text-white text-center">
+          <svg class="w-12 h-12 mx-auto mb-4" style="color: #0082FB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <h3 class="text-lg font-bold mb-2">Email</h3>
+          <a href="mailto:hyperstone@hyperstone.co.kr" class="hover:text-blue-400">hyperstone@hyperstone.co.kr</a>
+        </div>
+        
+        <div class="contact-card bg-white bg-opacity-10 p-6 rounded-lg text-white text-center">
+          <svg class="w-12 h-12 mx-auto mb-4" style="color: #0082FB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+          <h3 class="text-lg font-bold mb-2">Address</h3>
+          <p>경기도 평택시 고덕여염로 118, 610호</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-400 mt-4">✓ Should lift up, brighten background, and show blue shadow on hover</p>
+    </section>
+    
+    <!-- Form Elements Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Form Elements</h2>
+      <div class="space-y-4">
+        <input type="text" placeholder="Input field" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+        <textarea placeholder="Textarea" class="w-full px-4 py-2 border border-gray-300 rounded-lg" rows="3"></textarea>
+        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+          <option>Select option</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">✓ Should show blue border on hover and blue shadow on focus</p>
+    </section>
+    
+    <!-- Thumbnails Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Thumbnails</h2>
+      <div class="grid grid-cols-4 gap-4">
+        <img src="https://placehold.co/200x150/0082FB/FFFFFF?text=Thumb+1" alt="Thumbnail 1" class="thumbnail border-2 border-gray-300 rounded-lg cursor-pointer">
+        <img src="https://placehold.co/200x150/0064E0/FFFFFF?text=Thumb+2" alt="Thumbnail 2" class="thumbnail border-2 border-gray-300 rounded-lg cursor-pointer active">
+        <img src="https://placehold.co/200x150/0082FB/FFFFFF?text=Thumb+3" alt="Thumbnail 3" class="thumbnail border-2 border-gray-300 rounded-lg cursor-pointer">
+        <img src="https://placehold.co/200x150/0064E0/FFFFFF?text=Thumb+4" alt="Thumbnail 4" class="thumbnail border-2 border-gray-300 rounded-lg cursor-pointer">
+      </div>
+      <p class="text-sm text-gray-600 mt-4">✓ Should scale up, become fully opaque, and show blue border on hover</p>
+    </section>
+    
+    <!-- Back Button Test -->
+    <section class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold mb-4" style="color: #1C2B33;">Back Button</h2>
+      <button id="back-button" class="flex items-center space-x-2 px-4 py-2 rounded-lg border border-gray-300">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Back to Products</span>
+      </button>
+      <p class="text-sm text-gray-600 mt-4">✓ Should slide left and change colors on hover</p>
+    </section>
+    
+    <!-- Test Summary -->
+    <section class="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
+      <h2 class="text-2xl font-bold mb-4" style="color: #0082FB;">Test Summary</h2>
+      <p class="mb-4">All interactive elements should have smooth transitions (0.3s ease) including:</p>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Navigation links: Color change and underline animation</li>
+        <li>Buttons: Background color change, lift effect, shadow</li>
+        <li>Product cards: Lift, scale, shadow, image zoom</li>
+        <li>Generic cards: Lift and shadow</li>
+        <li>Contact cards: Lift, background brighten, shadow</li>
+        <li>Form elements: Border color on hover, shadow on focus</li>
+        <li>Thumbnails: Scale, opacity, border color</li>
+        <li>Icons: Scale and color change</li>
+        <li>Back button: Slide left and color change</li>
+      </ul>
+    </section>
+  </div>
+  
+  <script>
+    // Add fade-in class to product cards after a short delay
+    setTimeout(() => {
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.classList.add('fade-in');
+      });
+    }, 100);
+  </script>
+</body>
+</html>

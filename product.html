@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HYPERSTONE - DULITE 제품 상세 정보">
+  <meta name="keywords" content="HYPERSTONE, DULITE, 콘크리트, Ready Mix Concrete, Precast Concrete, Grouting Agent, Waterproof Agent">
+  <meta name="author" content="HYPERSTONE">
+  <title>DULITE Product - HYPERSTONE</title>
+  
+  <!-- Google Fonts - Audiowide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Brand Name -->
+        <div class="brand-name">
+          <a href="index.html" class="text-2xl font-bold" style="font-family: 'Audiowide', cursive; color: #0082FB; text-transform: uppercase; letter-spacing: 0.05em;">
+            HYPERSTONE
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html#home" class="nav-link" data-i18n="navigation.home" style="color: #1C2B33;">홈</a>
+          <a href="index.html#about" class="nav-link" data-i18n="navigation.about" style="color: #1C2B33;">회사소개</a>
+          <a href="index.html#products" class="nav-link active" data-i18n="navigation.products" style="color: #1C2B33;">제품</a>
+          <a href="index.html#contact" class="nav-link" data-i18n="navigation.contact" style="color: #1C2B33;">연락처</a>
+        </div>
+
+        <!-- Language Toggle & Mobile Menu Button -->
+        <div class="flex items-center space-x-4">
+          <!-- Language Toggle Button -->
+          <button id="lang-toggle" class="px-3 py-1 text-sm font-medium rounded transition-colors duration-300" style="color: #1C2B33; border: 1px solid #1C2B33;">
+            <span id="current-lang">KO</span> / <span id="other-lang">EN</span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300" aria-label="Toggle menu">
+            <svg class="w-6 h-6" style="color: #1C2B33;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-3">
+          <a href="index.html#home" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" data-i18n="navigation.home" style="color: #1C2B33;">홈</a>
+          <a href="index.html#about" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" data-i18n="navigation.about" style="color: #1C2B33;">회사소개</a>
+          <a href="index.html#products" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" data-i18n="navigation.products" style="color: #1C2B33;">제품</a>
+          <a href="index.html#contact" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" data-i18n="navigation.contact" style="color: #1C2B33;">연락처</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Detail Content -->
+  <main class="pt-24 pb-20" style="background-color: #F1F5F8;">
+    <div class="container mx-auto px-4">
+      <!-- Back Button -->
+      <div class="mb-8">
+        <a href="index.html#products" id="back-button" class="inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-md" style="background-color: white; color: #1C2B33;">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          <span data-i18n="product.backToProducts">제품 목록으로</span>
+        </a>
+      </div>
+
+      <!-- Product Header Section (2-column layout) -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- Left Column: Image Gallery -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <!-- Main Image -->
+          <div class="mb-4 rounded-lg overflow-hidden" style="background-color: #F1F5F8;">
+            <img id="main-image" src="" alt="Product" class="w-full h-auto object-cover" style="aspect-ratio: 16/10;">
+          </div>
+          
+          <!-- Thumbnail Grid -->
+          <div id="thumbnail-grid" class="grid grid-cols-3 gap-3">
+            <!-- Thumbnails will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <!-- Right Column: Product Info -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <!-- Product Name with DULITE brand -->
+          <h1 id="product-name" class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Audiowide', cursive; color: #0082FB; text-transform: uppercase; letter-spacing: 0.05em;">
+            DULITE Product
+          </h1>
+          
+          <!-- Product Description -->
+          <p id="product-description" class="text-lg mb-6" style="color: #1C2B33; opacity: 0.9;">
+            Product description will be loaded here...
+          </p>
+        </div>
+      </div>
+
+      <!-- Product Details Sections -->
+      <div class="space-y-8">
+        <!-- Key Features Section -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.keyFeatures">
+            주요 특징
+          </h2>
+          <ul id="features-list" class="space-y-3">
+            <!-- Features will be dynamically inserted here -->
+          </ul>
+        </div>
+
+        <!-- Specifications Section -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.specifications">
+            제품 사양
+          </h2>
+          <div class="overflow-x-auto">
+            <table id="specifications-table" class="w-full">
+              <tbody>
+                <!-- Specifications will be dynamically inserted here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Applications Section -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.applications">
+            적용 분야
+          </h2>
+          <ul id="applications-list" class="space-y-3">
+            <!-- Applications will be dynamically inserted here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+        <!-- Brand and Description -->
+        <div>
+          <h3 class="text-2xl font-bold mb-4" style="font-family: 'Audiowide', cursive; color: #0082FB; text-transform: uppercase; letter-spacing: 0.05em;">
+            HYPERSTONE
+          </h3>
+          <p class="text-white opacity-80 text-sm" data-i18n="footer.description">
+            건설업계의 혁신을 선도하는 콘크리트 전문 기업
+          </p>
+        </div>
+
+        <!-- Business Information -->
+        <div>
+          <p class="text-white opacity-90 mb-2">
+            <span class="font-semibold" data-i18n="footer.businessNumber">사업자등록번호</span>: 336-87-03585
+          </p>
+          <p class="text-white opacity-90">
+            <span class="font-semibold" data-i18n="footer.ceo">대표이사</span>: <span data-i18n="footer.ceoName">심철훈</span>
+          </p>
+        </div>
+
+        <!-- Copyright -->
+        <div class="md:text-right">
+          <p class="text-white opacity-80 text-sm" data-i18n="footer.copyright">
+            © 2025 HYPERSTONE. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>

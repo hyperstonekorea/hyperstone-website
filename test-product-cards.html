@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card Test - HYPERSTONE</title>
+  
+  <!-- Google Fonts - Audiowide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="container mx-auto">
+    <h1 class="text-4xl font-bold mb-8 text-center" style="color: #1C2B33;">Product Card Test</h1>
+    
+    <div id="test-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Product cards will be inserted here -->
+    </div>
+    
+    <div class="mt-8 text-center">
+      <button id="toggle-lang" class="px-6 py-3 rounded-lg text-white font-semibold" style="background-color: #0082FB;">
+        Toggle Language (Current: <span id="current-lang-display">KO</span>)
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/infinite-scroll.js"></script>
+  
+  <script>
+    // Initialize
+    loadLanguagePreference();
+    
+    // Render all products
+    const products = getProducts();
+    const lang = getCurrentLanguage();
+    const grid = document.getElementById('test-grid');
+    
+    products.forEach(product => {
+      const card = createProductCard(product, lang);
+      grid.appendChild(card);
+    });
+    
+    // Update language display
+    document.getElementById('current-lang-display').textContent = lang.toUpperCase();
+    
+    // Language toggle
+    document.getElementById('toggle-lang').addEventListener('click', function() {
+      const newLang = getCurrentLanguage() === 'ko' ? 'en' : 'ko';
+      setLanguage(newLang);
+      
+      // Clear and re-render
+      grid.innerHTML = '';
+      products.forEach(product => {
+        const card = createProductCard(product, newLang);
+        grid.appendChild(card);
+      });
+      
+      document.getElementById('current-lang-display').textContent = newLang.toUpperCase();
+    });
+  </script>
+</body>
+</html>

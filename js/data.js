@@ -1,0 +1,350 @@
+// Product and Company Data for HYPERSTONE Website
+
+// Products array with all 4 DULITE products
+const products = [
+  {
+    id: "1",
+    slug: "readymixconcrete",
+    name: {
+      ko: "DULITE Ready Mix Concrete",
+      en: "DULITE Ready Mix Concrete"
+    },
+    shortDescription: {
+      ko: "고품질 레미콘으로 건설 현장의 효율성을 극대화합니다.",
+      en: "High-quality ready-mix concrete that maximizes construction site efficiency."
+    },
+    fullDescription: {
+      ko: "DULITE Ready Mix Concrete는 최신 기술과 엄격한 품질 관리를 통해 생산되는 고품질 레미콘입니다. 건설 현장의 다양한 요구사항을 충족시키며, 일관된 품질과 우수한 작업성을 제공합니다.",
+      en: "DULITE Ready Mix Concrete is high-quality ready-mix concrete produced through cutting-edge technology and rigorous quality control. It meets various construction site requirements and provides consistent quality and excellent workability."
+    },
+    specifications: {
+      ko: [
+        { label: "압축강도", value: "25-40", unit: "MPa" },
+        { label: "슬럼프", value: "80-180", unit: "mm" },
+        { label: "공기량", value: "4.5±1.5", unit: "%" },
+        { label: "염화물 함량", value: "0.3 이하", unit: "kg/m³" }
+      ],
+      en: [
+        { label: "Compressive Strength", value: "25-40", unit: "MPa" },
+        { label: "Slump", value: "80-180", unit: "mm" },
+        { label: "Air Content", value: "4.5±1.5", unit: "%" },
+        { label: "Chloride Content", value: "≤0.3", unit: "kg/m³" }
+      ]
+    },
+    applications: {
+      ko: [
+        "일반 건축물 구조체",
+        "아파트 및 주거용 건물",
+        "상업용 건물 기초 및 구조체",
+        "토목 구조물"
+      ],
+      en: [
+        "General Building Structures",
+        "Apartments and Residential Buildings",
+        "Commercial Building Foundations and Structures",
+        "Civil Engineering Structures"
+      ]
+    },
+    images: {
+      thumbnail: "https://placehold.co/400x256/0082FB/FFFFFF?text=Ready+Mix+Concrete",
+      main: "https://placehold.co/800x512/0082FB/FFFFFF?text=Ready+Mix+Concrete",
+      gallery: [
+        "https://placehold.co/800x512/0082FB/FFFFFF?text=Ready+Mix+1",
+        "https://placehold.co/800x512/0064E0/FFFFFF?text=Ready+Mix+2",
+        "https://placehold.co/800x512/1C2B33/FFFFFF?text=Ready+Mix+3"
+      ]
+    },
+    features: {
+      ko: [
+        "고강도 및 고내구성",
+        "우수한 작업성",
+        "일관된 품질 관리",
+        "환경 친화적 배합",
+        "신속한 배송 시스템"
+      ],
+      en: [
+        "High Strength and Durability",
+        "Excellent Workability",
+        "Consistent Quality Control",
+        "Environmentally Friendly Mix",
+        "Fast Delivery System"
+      ]
+    }
+  },
+  {
+    id: "2",
+    slug: "precastconcrete",
+    name: {
+      ko: "DULITE Precast Concrete",
+      en: "DULITE Precast Concrete"
+    },
+    shortDescription: {
+      ko: "공장에서 제작된 고품질 프리캐스트 콘크리트 제품입니다.",
+      en: "High-quality precast concrete products manufactured in factory."
+    },
+    fullDescription: {
+      ko: "DULITE Precast Concrete는 공장에서 정밀하게 제작되어 현장 시공 시간을 단축하고 품질을 향상시킵니다. 다양한 형태와 크기로 제작 가능하며, 건축 및 토목 프로젝트에 최적화되어 있습니다.",
+      en: "DULITE Precast Concrete is precisely manufactured in factory to reduce on-site construction time and improve quality. Available in various shapes and sizes, optimized for building and civil engineering projects."
+    },
+    specifications: {
+      ko: [
+        { label: "압축강도", value: "40-60", unit: "MPa" },
+        { label: "흡수율", value: "5 이하", unit: "%" },
+        { label: "동결융해 저항성", value: "300회 이상", unit: "사이클" },
+        { label: "치수 정밀도", value: "±3", unit: "mm" }
+      ],
+      en: [
+        { label: "Compressive Strength", value: "40-60", unit: "MPa" },
+        { label: "Water Absorption", value: "≤5", unit: "%" },
+        { label: "Freeze-Thaw Resistance", value: "≥300", unit: "cycles" },
+        { label: "Dimensional Accuracy", value: "±3", unit: "mm" }
+      ]
+    },
+    applications: {
+      ko: [
+        "건축물 외벽 패널",
+        "계단 및 슬래브",
+        "옹벽 및 방음벽",
+        "교량 거더 및 교각"
+      ],
+      en: [
+        "Building Facade Panels",
+        "Stairs and Slabs",
+        "Retaining Walls and Sound Barriers",
+        "Bridge Girders and Piers"
+      ]
+    },
+    images: {
+      thumbnail: "https://placehold.co/400x256/0064E0/FFFFFF?text=Precast+Concrete",
+      main: "https://placehold.co/800x512/0064E0/FFFFFF?text=Precast+Concrete",
+      gallery: [
+        "https://placehold.co/800x512/0064E0/FFFFFF?text=Precast+1",
+        "https://placehold.co/800x512/0082FB/FFFFFF?text=Precast+2",
+        "https://placehold.co/800x512/1C2B33/FFFFFF?text=Precast+3"
+      ]
+    },
+    features: {
+      ko: [
+        "공장 생산으로 일정한 품질",
+        "현장 시공 기간 단축",
+        "정밀한 치수 관리",
+        "다양한 디자인 구현 가능",
+        "날씨에 영향 받지 않는 생산"
+      ],
+      en: [
+        "Consistent Quality through Factory Production",
+        "Reduced On-site Construction Time",
+        "Precise Dimensional Control",
+        "Various Design Options",
+        "Weather-Independent Production"
+      ]
+    }
+  },
+  {
+    id: "3",
+    slug: "groutingagent",
+    name: {
+      ko: "DULITE Grouting Agent",
+      en: "DULITE Grouting Agent"
+    },
+    shortDescription: {
+      ko: "고성능 그라우팅 재료로 구조물의 안정성을 확보합니다.",
+      en: "High-performance grouting material that ensures structural stability."
+    },
+    fullDescription: {
+      ko: "DULITE Grouting Agent는 우수한 유동성과 충전성을 가진 고성능 그라우팅 재료입니다. 구조물의 공극을 완벽하게 충전하여 안정성을 높이고, 다양한 시공 조건에서 최적의 성능을 발휘합니다.",
+      en: "DULITE Grouting Agent is a high-performance grouting material with excellent fluidity and filling properties. It perfectly fills structural voids to enhance stability and delivers optimal performance under various construction conditions."
+    },
+    specifications: {
+      ko: [
+        { label: "압축강도", value: "50-80", unit: "MPa" },
+        { label: "유동성", value: "200-250", unit: "mm" },
+        { label: "팽창률", value: "0.1-0.5", unit: "%" },
+        { label: "블리딩", value: "0", unit: "%" }
+      ],
+      en: [
+        { label: "Compressive Strength", value: "50-80", unit: "MPa" },
+        { label: "Fluidity", value: "200-250", unit: "mm" },
+        { label: "Expansion Rate", value: "0.1-0.5", unit: "%" },
+        { label: "Bleeding", value: "0", unit: "%" }
+      ]
+    },
+    applications: {
+      ko: [
+        "기계 기초 그라우팅",
+        "앵커볼트 고정",
+        "교량 받침 그라우팅",
+        "균열 보수 및 보강"
+      ],
+      en: [
+        "Machine Foundation Grouting",
+        "Anchor Bolt Fixing",
+        "Bridge Bearing Grouting",
+        "Crack Repair and Reinforcement"
+      ]
+    },
+    images: {
+      thumbnail: "https://placehold.co/400x256/1C2B33/FFFFFF?text=Grouting+Agent",
+      main: "https://placehold.co/800x512/1C2B33/FFFFFF?text=Grouting+Agent",
+      gallery: [
+        "https://placehold.co/800x512/1C2B33/FFFFFF?text=Grouting+1",
+        "https://placehold.co/800x512/0082FB/FFFFFF?text=Grouting+2",
+        "https://placehold.co/800x512/0064E0/FFFFFF?text=Grouting+3"
+      ]
+    },
+    features: {
+      ko: [
+        "무수축 특성",
+        "우수한 유동성",
+        "조기 강도 발현",
+        "블리딩 제로",
+        "다양한 온도 조건 대응"
+      ],
+      en: [
+        "Non-shrink Properties",
+        "Excellent Fluidity",
+        "Early Strength Development",
+        "Zero Bleeding",
+        "Adaptable to Various Temperature Conditions"
+      ]
+    }
+  },
+  {
+    id: "4",
+    slug: "waterproofagent",
+    name: {
+      ko: "DULITE Waterproof Agent",
+      en: "DULITE Waterproof Agent"
+    },
+    shortDescription: {
+      ko: "콘크리트 구조물의 방수 성능을 극대화하는 첨가제입니다.",
+      en: "Additive that maximizes waterproofing performance of concrete structures."
+    },
+    fullDescription: {
+      ko: "DULITE Waterproof Agent는 콘크리트 내부의 공극을 밀실하게 만들어 방수 성능을 극대화하는 첨가제입니다. 지하 구조물, 수조, 터널 등 방수가 중요한 구조물에 최적화되어 있으며, 장기적인 방수 효과를 제공합니다.",
+      en: "DULITE Waterproof Agent is an additive that maximizes waterproofing performance by densifying internal voids in concrete. Optimized for structures requiring waterproofing such as underground structures, water tanks, and tunnels, providing long-term waterproofing effects."
+    },
+    specifications: {
+      ko: [
+        { label: "투수계수", value: "1×10⁻¹²", unit: "cm/s" },
+        { label: "압축강도 증가율", value: "10-15", unit: "%" },
+        { label: "혼입량", value: "5-8", unit: "kg/m³" },
+        { label: "염화물 함량", value: "0.01 이하", unit: "%" }
+      ],
+      en: [
+        { label: "Permeability Coefficient", value: "1×10⁻¹²", unit: "cm/s" },
+        { label: "Compressive Strength Increase", value: "10-15", unit: "%" },
+        { label: "Dosage", value: "5-8", unit: "kg/m³" },
+        { label: "Chloride Content", value: "≤0.01", unit: "%" }
+      ]
+    },
+    applications: {
+      ko: [
+        "지하 구조물 방수",
+        "수조 및 저수조",
+        "터널 라이닝",
+        "욕실 및 주방 바닥"
+      ],
+      en: [
+        "Underground Structure Waterproofing",
+        "Water Tanks and Reservoirs",
+        "Tunnel Lining",
+        "Bathroom and Kitchen Floors"
+      ]
+    },
+    images: {
+      thumbnail: "https://placehold.co/400x256/F1F5F8/1C2B33?text=Waterproof+Agent",
+      main: "https://placehold.co/800x512/F1F5F8/1C2B33?text=Waterproof+Agent",
+      gallery: [
+        "https://placehold.co/800x512/F1F5F8/1C2B33?text=Waterproof+1",
+        "https://placehold.co/800x512/0082FB/FFFFFF?text=Waterproof+2",
+        "https://placehold.co/800x512/0064E0/FFFFFF?text=Waterproof+3"
+      ]
+    },
+    features: {
+      ko: [
+        "우수한 방수 성능",
+        "콘크리트 강도 향상",
+        "내구성 증대",
+        "시공 편의성",
+        "친환경 제품"
+      ],
+      en: [
+        "Excellent Waterproofing Performance",
+        "Enhanced Concrete Strength",
+        "Increased Durability",
+        "Easy Application",
+        "Eco-friendly Product"
+      ]
+    }
+  }
+];
+
+// Company information
+const companyInfo = {
+  name: {
+    ko: "하이퍼스톤",
+    en: "HYPERSTONE"
+  },
+  description: {
+    ko: "건설업계의 혁신을 선도하는 콘크리트 전문 기업",
+    en: "Leading concrete specialist driving innovation in the construction industry"
+  },
+  contact: {
+    phone: "010-8900-5863",
+    email: "hyperstone@hyperstone.co.kr",
+    address: {
+      ko: "경기도 평택시 고덕여염로 118, 610호",
+      en: "118 Godeok-yeoyeom-ro, Pyeongtaek-si, Gyeonggi-do, 610ho"
+    }
+  },
+  businessInfo: {
+    registrationNumber: "336-87-03585",
+    established: "2025.09.30",
+    ceo: {
+      ko: "심철훈",
+      en: "SHIM CHUL HUN"
+    }
+  },
+  stats: {
+    yearsOfExperience: "30+",
+    compressiveStrength: "110MPa+",
+    costReduction: "20%+"
+  }
+};
+
+// Helper functions
+
+/**
+ * Get all products
+ * @returns {Array} Array of all products
+ */
+function getProducts() {
+  return products;
+}
+
+/**
+ * Get product by ID
+ * @param {string} id - Product ID
+ * @returns {Object|undefined} Product object or undefined if not found
+ */
+function getProductById(id) {
+  return products.find(p => p.id === id);
+}
+
+/**
+ * Get product by slug
+ * @param {string} slug - Product slug
+ * @returns {Object|undefined} Product object or undefined if not found
+ */
+function getProductBySlug(slug) {
+  return products.find(p => p.slug === slug);
+}
+
+/**
+ * Get company information
+ * @returns {Object} Company information object
+ */
+function getCompanyInfo() {
+  return companyInfo;
+}

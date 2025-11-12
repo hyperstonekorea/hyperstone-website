@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Design Test - HYPERSTONE</title>
+  
+  <!-- Google Fonts - Audiowide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    /* Test viewport indicators */
+    .viewport-indicator {
+      position: fixed;
+      top: 80px;
+      right: 10px;
+      background: rgba(0, 130, 251, 0.9);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      z-index: 9999;
+    }
+    
+    .test-section {
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 2px dashed #0082FB;
+      border-radius: 8px;
+    }
+    
+    .test-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1C2B33;
+      margin-bottom: 1rem;
+    }
+    
+    .test-description {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Viewport Indicator -->
+  <div class="viewport-indicator" id="viewport-indicator">
+    Viewport: <span id="viewport-size"></span>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Brand Name -->
+        <div class="brand-name">
+          <a href="#home" class="text-2xl font-bold" style="font-family: 'Audiowide', cursive; color: #0082FB; text-transform: uppercase; letter-spacing: 0.05em;">
+            HYPERSTONE
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#test1" class="nav-link active" style="color: #1C2B33;">Test 1</a>
+          <a href="#test2" class="nav-link" style="color: #1C2B33;">Test 2</a>
+          <a href="#test3" class="nav-link" style="color: #1C2B33;">Test 3</a>
+          <a href="#test4" class="nav-link" style="color: #1C2B33;">Test 4</a>
+        </div>
+
+        <!-- Language Toggle & Mobile Menu Button -->
+        <div class="flex items-center space-x-4">
+          <!-- Language Toggle Button -->
+          <button id="lang-toggle" class="px-3 py-1 text-sm font-medium rounded transition-colors duration-300" style="color: #1C2B33; border: 1px solid #1C2B33;">
+            <span id="current-lang">KO</span> / <span id="other-lang">EN</span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300" aria-label="Toggle menu">
+            <svg class="w-6 h-6" style="color: #1C2B33;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-3">
+          <a href="#test1" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" style="color: #1C2B33;">Test 1</a>
+          <a href="#test2" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" style="color: #1C2B33;">Test 2</a>
+          <a href="#test3" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" style="color: #1C2B33;">Test 3</a>
+          <a href="#test4" class="mobile-nav-link py-2 px-4 rounded hover:bg-gray-100 transition-colors duration-300" style="color: #1C2B33;">Test 4</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div style="padding-top: 80px;">
+    <!-- Test Section 1: Hero Text Sizes -->
+    <section id="test1" class="test-section" style="background-color: #F1F5F8;">
+      <h2 class="test-title">Test 1: Hero Section Text Sizes</h2>
+      <p class="test-description">Text should scale appropriately for mobile, tablet, and desktop</p>
+      
+      <div class="text-center">
+        <h1 class="brand-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6" style="font-family: 'Audiowide', cursive; color: #0082FB;">
+          HYPERSTONE
+        </h1>
+        <h2 class="subtitle text-2xl md:text-3xl lg:text-4xl mb-4" style="color: #1C2B33;">
+          건설업계의 혁신적인 솔루션
+        </h2>
+        <p class="description text-lg md:text-xl opacity-90" style="color: #1C2B33;">
+          DULITE 브랜드로 최고 품질의 콘크리트 제품을 제공합니다
+        </p>
+      </div>
+    </section>
+
+    <!-- Test Section 2: Touch-Friendly Buttons -->
+    <section id="test2" class="test-section">
+      <h2 class="test-title">Test 2: Touch-Friendly Buttons (Min 44x44px)</h2>
+      <p class="test-description">All buttons should be at least 44x44px for touch targets</p>
+      
+      <div class="flex flex-col md:flex-row gap-4">
+        <button class="btn-primary">Primary Button</button>
+        <button class="btn-secondary">Secondary Button</button>
+        <button style="background-color: #1C2B33; color: white; padding: 0.75rem 1.5rem; border-radius: 0.375rem; border: none;">
+          Custom Button
+        </button>
+      </div>
+    </section>
+
+    <!-- Test Section 3: Product Cards Grid -->
+    <section id="test3" class="test-section" style="background-color: #F1F5F8;">
+      <h2 class="test-title">Test 3: Product Cards - Single Column on Mobile</h2>
+      <p class="test-description">Grid should be: 1 column (mobile), 2 columns (tablet), 3 columns (desktop)</p>
+      
+      <div id="products-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product Card 1 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div style="background-color: #0082FB; height: 200px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: white; font-size: 1.5rem; font-weight: bold;">Product 1</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2" style="font-family: 'Audiowide', cursive; color: #1C2B33;">DULITE Product</h3>
+            <p class="text-gray-600 mb-4">This is a test product card to verify responsive grid layout.</p>
+            <button class="btn-primary w-full">Learn More</button>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div style="background-color: #0064E0; height: 200px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: white; font-size: 1.5rem; font-weight: bold;">Product 2</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2" style="font-family: 'Audiowide', cursive; color: #1C2B33;">DULITE Product</h3>
+            <p class="text-gray-600 mb-4">This is a test product card to verify responsive grid layout.</p>
+            <button class="btn-primary w-full">Learn More</button>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div style="background-color: #0082FB; height: 200px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: white; font-size: 1.5rem; font-weight: bold;">Product 3</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2" style="font-family: 'Audiowide', cursive; color: #1C2B33;">DULITE Product</h3>
+            <p class="text-gray-600 mb-4">This is a test product card to verify responsive grid layout.</p>
+            <button class="btn-primary w-full">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test Section 4: Mobile Menu -->
+    <section id="test4" class="test-section">
+      <h2 class="test-title">Test 4: Mobile Menu Functionality</h2>
+      <p class="test-description">On mobile (< 768px), click the hamburger menu to test slide-in drawer</p>
+      
+      <div class="bg-gray-100 p-6 rounded-lg">
+        <h3 class="font-bold mb-3" style="color: #1C2B33;">Test Checklist:</h3>
+        <ul class="space-y-2" style="color: #1C2B33;">
+          <li>✓ Mobile menu button visible on mobile (< 768px)</li>
+          <li>✓ Desktop navigation visible on desktop (>= 768px)</li>
+          <li>✓ Mobile menu slides in smoothly when opened</li>
+          <li>✓ Navigation links are vertical in mobile menu</li>
+          <li>✓ All touch targets are at least 44x44px</li>
+          <li>✓ Menu closes when clicking a link</li>
+          <li>✓ Icon changes from hamburger to X when open</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/navigation.js"></script>
+  <script>
+    // Initialize navigation
+    setupNavigation();
+    
+    // Update viewport indicator
+    function updateViewportIndicator() {
+      const width = window.innerWidth;
+      const indicator = document.getElementById('viewport-size');
+      
+      if (width < 768) {
+        indicator.textContent = `${width}px (Mobile)`;
+        indicator.parentElement.style.backgroundColor = '#FF6B6B';
+      } else if (width < 1024) {
+        indicator.textContent = `${width}px (Tablet)`;
+        indicator.parentElement.style.backgroundColor = '#FFA500';
+      } else {
+        indicator.textContent = `${width}px (Desktop)`;
+        indicator.parentElement.style.backgroundColor = '#0082FB';
+      }
+    }
+    
+    // Update on load and resize
+    updateViewportIndicator();
+    window.addEventListener('resize', updateViewportIndicator);
+  </script>
+</body>
+</html>

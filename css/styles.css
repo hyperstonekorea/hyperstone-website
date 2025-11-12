@@ -1,0 +1,891 @@
+/* ===================================
+   HYPERSTONE Website - Custom Styles
+   =================================== */
+
+/* ===================================
+   CSS Custom Properties (Brand Colors)
+   =================================== */
+:root {
+  --color-primary: #0082FB;
+  --color-secondary: #0064E0;
+  --color-light: #F1F5F8;
+  --color-dark: #1C2B33;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  
+  /* Responsive Breakpoints */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 1024px;
+}
+
+/* ===================================
+   Brand Text Styling
+   =================================== */
+.brand-text {
+  font-family: 'Audiowide', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+/* ===================================
+   Animation Keyframes
+   =================================== */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+}
+
+.animate-fade-in-delay-2 {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.6s forwards;
+}
+
+/* Bounce Animation for Scroll Indicator */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Hero Section Specific Styles */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 130, 251, 0.1) 0%, rgba(0, 100, 224, 0.1) 100%);
+  pointer-events: none;
+}
+
+/* ===================================
+   Navigation Bar Styles
+   =================================== */
+
+/* Sticky Navigation */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#navbar.scrolled {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Link Styles */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-primary) !important;
+}
+
+/* Mobile Navigation */
+#mobile-menu {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+#mobile-menu.show {
+  opacity: 1;
+}
+
+.mobile-nav-link {
+  transition: all 0.3s ease;
+  padding: 0.75rem 1rem;
+  display: block;
+  color: var(--color-dark);
+  text-decoration: none;
+  border-radius: 0.375rem;
+}
+
+.mobile-nav-link:hover {
+  background-color: var(--color-light);
+  color: var(--color-primary) !important;
+}
+
+.mobile-nav-link.active {
+  background-color: rgba(0, 130, 251, 0.1);
+  color: var(--color-primary) !important;
+  font-weight: 600;
+}
+
+/* Language Toggle Button */
+#lang-toggle {
+  transition: all 0.3s ease;
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+#lang-toggle:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+/* ===================================
+   Hero Section Styles
+   =================================== */
+
+/* Scroll Indicator Styles */
+.scroll-indicator {
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-indicator:hover {
+  opacity: 1 !important;
+}
+
+/* ===================================
+   Responsive Design Breakpoints
+   =================================== */
+
+/* Mobile Devices (< 768px) */
+@media (max-width: 767px) {
+  /* Typography - Adjust hero section text sizes */
+  .brand-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem !important;
+    line-height: 1.4;
+  }
+  
+  .description {
+    font-size: 1rem !important;
+    line-height: 1.6;
+  }
+  
+  .section-title {
+    font-size: 2rem !important;
+  }
+  
+  /* Hide scroll indicator on mobile */
+  .scroll-indicator {
+    display: none !important;
+  }
+  
+  /* Mobile Navigation - Vertical stacking */
+  #mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  #mobile-menu.show {
+    max-height: 500px;
+  }
+  
+  .mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  /* Touch-friendly button sizes (minimum 44x44px) */
+  button,
+  .btn-primary,
+  .btn-secondary,
+  a.btn-primary,
+  a.btn-secondary {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  #mobile-menu-button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem;
+  }
+  
+  #lang-toggle {
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Navigation links touch-friendly */
+  .nav-link,
+  .mobile-nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Product cards - Single column on mobile */
+  #products-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  
+  /* Adjust padding for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Single column grids on mobile */
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  
+  /* Hero section adjustments */
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* About section cards */
+  .vision-mission-grid,
+  .core-values-grid,
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Contact section cards */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Footer adjustments */
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  
+  footer .md\:text-right {
+    text-align: center !important;
+  }
+  
+  /* Increase touch target sizes for icons */
+  svg {
+    min-width: 24px;
+    min-height: 24px;
+  }
+  
+  /* Product card adjustments */
+  .product-card {
+    width: 100%;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Ensure text is readable on mobile */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Adjust spacing for mobile */
+  .mb-16 {
+    margin-bottom: 2rem !important;
+  }
+  
+  .mb-12 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mb-8 {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Navbar adjustments for mobile */
+  #navbar .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .brand-name a {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Tablet Devices (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Typography */
+  .brand-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .subtitle {
+    font-size: 1.75rem !important;
+  }
+  
+  .section-title {
+    font-size: 2.5rem !important;
+  }
+  
+  /* Two-column grids on tablet */
+  #products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .core-values-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Touch-friendly button sizes on tablet */
+  button,
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Adjust spacing for tablet */
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Desktop Devices (>= 1024px) */
+@media (min-width: 1024px) {
+  /* Typography */
+  .brand-title {
+    font-size: 4.5rem;
+  }
+  
+  .subtitle {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+  
+  /* Multi-column grids on desktop */
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .core-values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Hover effects only on desktop */
+  .product-card:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* ===================================
+   Base Styles
+   =================================== */
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* General Transitions - Apply smooth transitions to all elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, transform, box-shadow;
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+}
+
+/* Prevent transitions on page load */
+.preload * {
+  transition: none !important;
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-light {
+  background-color: var(--color-light);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-secondary);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  border: 2px solid var(--color-primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Scroll Animation Styles */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Product Card Fade-in Animation */
+.product-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.product-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================================
+   Hover Effects for Interactive Elements
+   =================================== */
+
+/* Product Card Hover Effects */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease-out;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 130, 251, 0.2);
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Button Hover Effects */
+button,
+.btn-primary,
+.btn-secondary,
+a.btn-primary,
+a.btn-secondary {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover,
+.btn-primary:hover,
+a.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 130, 251, 0.4);
+  background-color: var(--color-secondary);
+}
+
+.btn-secondary:hover,
+a.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 130, 251, 0.3);
+}
+
+button:active,
+.btn-primary:active,
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 130, 251, 0.2);
+}
+
+/* Navigation Link Hover Effects */
+.nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Link Hover Effects */
+a {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+  opacity: 0.9;
+}
+
+/* Card Hover Effects */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon Hover Effects */
+.icon,
+svg {
+  transition: transform 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+.icon:hover,
+svg:hover {
+  transform: scale(1.15);
+  color: var(--color-primary);
+}
+
+/* Contact Card Hover Effects */
+.contact-card {
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 130, 251, 0.2);
+}
+
+/* Input and Form Element Hover Effects */
+input,
+textarea,
+select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--color-primary);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 130, 251, 0.1);
+  outline: none;
+}
+
+/* Image Hover Effects */
+img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Thumbnail Hover Effects */
+.thumbnail {
+  transition: transform 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  border-color: var(--color-primary);
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: var(--color-primary);
+}
+
+/* Back Button Hover Effects */
+#back-button,
+.back-button {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#back-button:hover,
+.back-button:hover {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  transform: translateX(-5px);
+}
+
+/* Statistics Counter Hover Effects */
+.stat-card,
+.stats-grid > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover,
+.stats-grid > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 130, 251, 0.15);
+}
+
+/* Core Values Card Hover Effects */
+.core-values-grid > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.core-values-grid > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 130, 251, 0.15);
+  background-color: rgba(0, 130, 251, 0.02);
+}
+
+/* Vision/Mission Card Hover Effects */
+.vision-mission-grid > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vision-mission-grid > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Link Hover Effects */
+footer a {
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+  transform: translateX(3px);
+}
+
+/* Loading Indicator Animation */
+.loading-indicator,
+#loading-indicator {
+  transition: opacity 0.3s ease;
+}
+
+/* Hamburger Menu Button Hover Effects */
+#mobile-menu-button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#mobile-menu-button:hover {
+  background-color: var(--color-light);
+  transform: scale(1.05);
+}
+
+/* Smooth Transitions for All Interactive Elements */
+button,
+a,
+input,
+textarea,
+select,
+.card,
+.product-card,
+.contact-card,
+.nav-link,
+.mobile-nav-link,
+.btn-primary,
+.btn-secondary,
+.icon,
+svg,
+img {
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+}
+
+/* Counter Animation Styles */
+.counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===================================
+   Product Detail Page Responsive Styles
+   =================================== */
+
+/* Mobile product detail adjustments */
+@media (max-width: 767px) {
+  /* Product detail header */
+  #product-name {
+    font-size: 1.75rem !important;
+  }
+  
+  #product-description {
+    font-size: 1rem !important;
+  }
+  
+  /* Product detail sections */
+  .product-header {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Thumbnail grid on mobile */
+  #thumbnail-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  /* Tables on mobile */
+  table {
+    font-size: 0.875rem;
+  }
+  
+  /* Back button */
+  #back-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet product detail adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #product-name {
+    font-size: 2rem !important;
+  }
+  
+  #thumbnail-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
