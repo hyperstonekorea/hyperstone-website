@@ -213,43 +213,47 @@ const products = [
     id: "4",
     slug: "waterproofingagent",
     name: {
-      ko: "DULITE Waterproof Agent",
-      en: "DULITE Waterproof Agent"
+      ko: "DULITE Waterproofing Grouting Agent",
+      en: "DULITE Waterproofing Grouting Agent"
     },
     shortDescription: {
-      ko: "콘크리트 구조물의 방수 성능을 극대화하는 첨가제입니다.",
-      en: "Additive that maximizes waterproofing performance of concrete structures."
+      ko: "지하수 차단 및 유해 폐기물 누출 방지를 위한 지중 방수 그라우팅제입니다.",
+      en: "Underground waterproofing grouting agent for groundwater blocking and toxic waste leakage prevention."
     },
     fullDescription: {
-      ko: "DULITE Waterproof Agent는 콘크리트 내부의 공극을 밀실하게 만들어 방수 성능을 극대화하는 첨가제입니다. 지하 구조물, 수조, 터널 등 방수가 중요한 구조물에 최적화되어 있으며, 장기적인 방수 효과를 제공합니다.",
-      en: "DULITE Waterproof Agent is an additive that maximizes waterproofing performance by densifying internal voids in concrete. Optimized for structures requiring waterproofing such as underground structures, water tanks, and tunnels, providing long-term waterproofing effects."
+      ko: "DULITE Waterproofing Grouting Agent는 지하 구조물의 지중 방수를 위해 특별히 개발된 고성능 그라우팅 재료입니다. 지하수 침투를 완벽하게 차단하고 유해 폐기물 및 오염물질의 누출을 방지하여 환경을 보호합니다. 우수한 침투성과 충전성으로 지반의 미세한 균열과 공극까지 완벽하게 밀봉하며, 장기적인 방수 효과를 제공합니다.",
+      en: "DULITE Waterproofing Grouting Agent is a high-performance grouting material specially developed for underground waterproofing of subsurface structures. It completely blocks groundwater infiltration and prevents leakage of toxic waste and contaminants to protect the environment. With excellent penetration and filling properties, it perfectly seals even microscopic cracks and voids in the ground, providing long-term waterproofing effects."
     },
     specifications: {
       ko: [
-        { label: "투수계수", value: "1×10⁻¹²", unit: "cm/s" },
-        { label: "압축강도 증가율", value: "10-15", unit: "%" },
-        { label: "혼입량", value: "5-8", unit: "kg/m³" },
-        { label: "염화물 함량", value: "0.01 이하", unit: "%" }
+        { label: "투수계수", value: "1×10⁻¹³", unit: "cm/s" },
+        { label: "침투깊이", value: "50-100", unit: "cm" },
+        { label: "겔타임", value: "30-180", unit: "초" },
+        { label: "내화학성", value: "pH 2-12", unit: "" }
       ],
       en: [
-        { label: "Permeability Coefficient", value: "1×10⁻¹²", unit: "cm/s" },
-        { label: "Compressive Strength Increase", value: "10-15", unit: "%" },
-        { label: "Dosage", value: "5-8", unit: "kg/m³" },
-        { label: "Chloride Content", value: "≤0.01", unit: "%" }
+        { label: "Permeability Coefficient", value: "1×10⁻¹³", unit: "cm/s" },
+        { label: "Penetration Depth", value: "50-100", unit: "cm" },
+        { label: "Gel Time", value: "30-180", unit: "sec" },
+        { label: "Chemical Resistance", value: "pH 2-12", unit: "" }
       ]
     },
     applications: {
       ko: [
-        "지하 구조물 방수",
-        "수조 및 저수조",
-        "터널 라이닝",
-        "욕실 및 주방 바닥"
+        "지하 저장 탱크 방수",
+        "지하수 차단 및 지중 방수",
+        "유해 폐기물 저장소 누출 방지",
+        "지하 터널 및 지하철 방수",
+        "매립지 차수벽 시공",
+        "오염토양 격리 및 봉쇄"
       ],
       en: [
-        "Underground Structure Waterproofing",
-        "Water Tanks and Reservoirs",
-        "Tunnel Lining",
-        "Bathroom and Kitchen Floors"
+        "Underground Storage Tank Waterproofing",
+        "Groundwater Blocking and Underground Waterproofing",
+        "Toxic Waste Storage Leakage Prevention",
+        "Underground Tunnel and Subway Waterproofing",
+        "Landfill Cutoff Wall Construction",
+        "Contaminated Soil Isolation and Containment"
       ]
     },
     images: {
@@ -263,18 +267,22 @@ const products = [
     },
     features: {
       ko: [
-        "우수한 방수 성능",
-        "콘크리트 강도 향상",
-        "내구성 증대",
-        "시공 편의성",
-        "친환경 제품"
+        "지하수 완벽 차단",
+        "유해물질 누출 방지",
+        "우수한 침투 및 충전성",
+        "조절 가능한 경화 시간",
+        "높은 내화학성",
+        "환경 친화적 재료",
+        "장기 내구성 보장"
       ],
       en: [
-        "Excellent Waterproofing Performance",
-        "Enhanced Concrete Strength",
-        "Increased Durability",
-        "Easy Application",
-        "Eco-friendly Product"
+        "Complete Groundwater Blocking",
+        "Toxic Substance Leakage Prevention",
+        "Excellent Penetration and Filling",
+        "Adjustable Curing Time",
+        "High Chemical Resistance",
+        "Environmentally Friendly Material",
+        "Long-term Durability Guarantee"
       ]
     }
   }
