@@ -160,6 +160,7 @@ function checkDependencies() {
  */
 function setupHeroVideo() {
   const heroVideo = document.getElementById('hero-video');
+  const heroContent = document.getElementById('hero-content');
   
   if (heroVideo) {
     console.log('Setting up hero video...');
@@ -169,6 +170,12 @@ function setupHeroVideo() {
       console.log('Video ended, fading out...');
       // Add fade-out class to trigger CSS transition
       heroVideo.classList.add('fade-out');
+      
+      // Fade in hero text content after video starts fading
+      if (heroContent) {
+        heroContent.classList.remove('hero-text-hidden');
+        heroContent.classList.add('hero-text-visible');
+      }
       
       // Remove video from DOM after fade-out completes
       setTimeout(() => {
@@ -182,17 +189,32 @@ function setupHeroVideo() {
       console.error('Video failed to load:', e);
       // Remove video if it fails to load
       heroVideo.remove();
+      // Show text immediately if video fails
+      if (heroContent) {
+        heroContent.classList.remove('hero-text-hidden');
+        heroContent.classList.add('hero-text-visible');
+      }
     });
     
     // Ensure video plays (some browsers may block autoplay)
     heroVideo.play().catch(function(error) {
       console.warn('Autoplay prevented:', error);
-      // If autoplay is blocked, fade out immediately
+      // If autoplay is blocked, fade out immediately and show text
       heroVideo.classList.add('fade-out');
+      if (heroContent) {
+        heroContent.classList.remove('hero-text-hidden');
+        heroContent.classList.add('hero-text-visible');
+      }
       setTimeout(() => {
         heroVideo.remove();
       }, 1500);
     });
+  } else {
+    // If no video element, show text immediately
+    if (heroContent) {
+      heroContent.classList.remove('hero-text-hidden');
+      heroContent.classList.add('hero-text-visible');
+    }
   }
 }
 
