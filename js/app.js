@@ -155,11 +155,56 @@ function checkDependencies() {
 }
 
 /**
+ * Setup hero video background
+ * Handles video playback and fade-out effect
+ */
+function setupHeroVideo() {
+  const heroVideo = document.getElementById('hero-video');
+  
+  if (heroVideo) {
+    console.log('Setting up hero video...');
+    
+    // Handle video end event
+    heroVideo.addEventListener('ended', function() {
+      console.log('Video ended, fading out...');
+      // Add fade-out class to trigger CSS transition
+      heroVideo.classList.add('fade-out');
+      
+      // Remove video from DOM after fade-out completes
+      setTimeout(() => {
+        heroVideo.remove();
+        console.log('Video removed from DOM');
+      }, 1500); // Match the CSS transition duration
+    });
+    
+    // Handle video error
+    heroVideo.addEventListener('error', function(e) {
+      console.error('Video failed to load:', e);
+      // Remove video if it fails to load
+      heroVideo.remove();
+    });
+    
+    // Ensure video plays (some browsers may block autoplay)
+    heroVideo.play().catch(function(error) {
+      console.warn('Autoplay prevented:', error);
+      // If autoplay is blocked, fade out immediately
+      heroVideo.classList.add('fade-out');
+      setTimeout(() => {
+        heroVideo.remove();
+      }, 1500);
+    });
+  }
+}
+
+/**
  * DOMContentLoaded event listener
  * Triggers initialization when the DOM is fully loaded
  */
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM fully loaded');
+  
+  // Setup hero video first
+  setupHeroVideo();
   
   // Check if all dependencies are loaded
   if (checkDependencies()) {

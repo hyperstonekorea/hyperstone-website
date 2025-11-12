@@ -89,6 +89,26 @@
   pointer-events: none;
 }
 
+/* Hero Video Background */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 1.5s ease-out;
+}
+
+.hero-video.fade-out {
+  opacity: 0;
+}
+
 /* ===================================
    Navigation Bar Styles
    =================================== */
