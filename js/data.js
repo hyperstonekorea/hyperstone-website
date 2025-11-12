@@ -46,12 +46,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "https://placehold.co/400x256/0082FB/FFFFFF?text=Ready+Mix+Concrete",
-      main: "https://placehold.co/800x512/0082FB/FFFFFF?text=Ready+Mix+Concrete",
+      thumbnail: "img/ready_mix_thumb.png",
+      main: "img/ready_mix_concrete.png",
       gallery: [
-        "https://placehold.co/800x512/0082FB/FFFFFF?text=Ready+Mix+1",
-        "https://placehold.co/800x512/0064E0/FFFFFF?text=Ready+Mix+2",
-        "https://placehold.co/800x512/1C2B33/FFFFFF?text=Ready+Mix+3"
+        "img/ready_mix_concrete.png",
+        "img/ready_mix_concrete_detail.png",
+        "img/ready_mix_thumb.png"
       ]
     },
     features: {
@@ -115,12 +115,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "https://placehold.co/400x256/0064E0/FFFFFF?text=Precast+Concrete",
-      main: "https://placehold.co/800x512/0064E0/FFFFFF?text=Precast+Concrete",
+      thumbnail: "img/precast_concrete_thumb.png",
+      main: "img/precast_concrete.png",
       gallery: [
-        "https://placehold.co/800x512/0064E0/FFFFFF?text=Precast+1",
-        "https://placehold.co/800x512/0082FB/FFFFFF?text=Precast+2",
-        "https://placehold.co/800x512/1C2B33/FFFFFF?text=Precast+3"
+        "img/precast_concrete.png",
+        "img/precast_concrete_detail.png",
+        "img/precast_concrete_thumb.png"
       ]
     },
     features: {
@@ -184,12 +184,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "https://placehold.co/400x256/1C2B33/FFFFFF?text=Grouting+Agent",
-      main: "https://placehold.co/800x512/1C2B33/FFFFFF?text=Grouting+Agent",
+      thumbnail: "img/groundreinforcingagentthumb.png",
+      main: "img/DULITE_GROUTING.png",
       gallery: [
-        "https://placehold.co/800x512/1C2B33/FFFFFF?text=Grouting+1",
-        "https://placehold.co/800x512/0082FB/FFFFFF?text=Grouting+2",
-        "https://placehold.co/800x512/0064E0/FFFFFF?text=Grouting+3"
+        "img/DULITE_GROUTING.png",
+        "img/ground_reinforcement_detail.png",
+        "img/groundreinforcingagentthumb.png"
       ]
     },
     features: {
@@ -211,7 +211,7 @@ const products = [
   },
   {
     id: "4",
-    slug: "waterproofagent",
+    slug: "waterproofingagent",
     name: {
       ko: "DULITE Waterproof Agent",
       en: "DULITE Waterproof Agent"
@@ -253,12 +253,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "https://placehold.co/400x256/F1F5F8/1C2B33?text=Waterproof+Agent",
-      main: "https://placehold.co/800x512/F1F5F8/1C2B33?text=Waterproof+Agent",
+      thumbnail: "img/waterproofing_agent_thumb.png",
+      main: "img/DULITE_WATERPROOFING.png",
       gallery: [
-        "https://placehold.co/800x512/F1F5F8/1C2B33?text=Waterproof+1",
-        "https://placehold.co/800x512/0082FB/FFFFFF?text=Waterproof+2",
-        "https://placehold.co/800x512/0064E0/FFFFFF?text=Waterproof+3"
+        "img/DULITE_WATERPROOFING.png",
+        "img/waterproofing_detail.png",
+        "img/waterproofing_agent_thumb.png"
       ]
     },
     features: {

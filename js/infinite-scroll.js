@@ -54,8 +54,8 @@ function createProductCard(product, lang) {
   
   // Add click handler to navigate to product detail page
   card.addEventListener('click', function() {
-    // Navigate to product detail page with product slug
-    window.location.href = `product.html?slug=${product.slug}`;
+    // Navigate to dedicated product page
+    window.location.href = `${product.slug}.html`;
   });
   
   // Add hover effect to button
