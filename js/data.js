@@ -46,12 +46,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "img/ready_mix_thumb.png",
-      main: "img/ready_mix_concrete.png",
+      thumbnail: "img/readymix/ready_mix_thumb.png",
+      main: "img/readymix/readymix_main.png",
       gallery: [
-        "img/ready_mix_concrete.png",
-        "img/ready_mix_concrete_detail.png",
-        "img/ready_mix_thumb.png"
+        "img/readymix/readymix_carousel_01.png",
+        "img/readymix/readymix_carousel_02.png",
+        "img/readymix/readymix_main.png"
       ]
     },
     features: {
@@ -75,15 +75,15 @@ const products = [
     id: "2",
     slug: "precastconcrete",
     name: {
-      ko: "DULITE 프리캐스트 콘크리트",
+      ko: "DULITE PC",
       en: "DULITE Precast Concrete"
     },
     shortDescription: {
-      ko: "공장에서 제작된 고품질 프리캐스트 콘크리트 제품입니다.",
+      ko: "공장에서 제작된 고품질 PC 제품입니다.",
       en: "High-quality precast concrete products manufactured in factory."
     },
     fullDescription: {
-      ko: "DULITE 프리캐스트 콘크리트는 공장에서 정밀하게 제작되어 현장 시공 시간을 단축하고 품질을 향상시킵니다. 다양한 형태와 크기로 제작 가능하며, 건축 및 토목 프로젝트에 최적화되어 있습니다.",
+      ko: "DULITE PC는 공장에서 정밀하게 제작되어 현장 시공 시간을 단축하고 품질을 향상시킵니다. 다양한 형태와 크기로 제작 가능하며, 건축 및 토목 프로젝트에 최적화되어 있습니다.",
       en: "DULITE Precast Concrete is precisely manufactured in factory to reduce on-site construction time and improve quality. Available in various shapes and sizes, optimized for building and civil engineering projects."
     },
     specifications: {
@@ -115,12 +115,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "img/precast_concrete_thumb.png",
-      main: "img/precast_concrete.png",
+      thumbnail: "img/pc/precast_concrete_thumb.png",
+      main: "img/pc/precast_concrete_main.png",
       gallery: [
-        "img/precast_concrete.png",
-        "img/precast_concrete_detail.png",
-        "img/precast_concrete_thumb.png"
+        "img/pc/PC_carousel_01.png",
+        "img/pc/PC_carousel_02.jpeg",
+        "img/pc/PC_carousel_04.png"
       ]
     },
     features: {
@@ -144,16 +144,16 @@ const products = [
     id: "3",
     slug: "groutingagent",
     name: {
-      ko: "DULITE 지반보강 그라우팅제",
+      ko: "DULITE 그라우팅제",
       en: "DULITE Grouting Agent"
     },
     shortDescription: {
-      ko: "고성능 그라우팅 재료로 구조물의 안정성을 확보합니다.",
+      ko: "고성능 지반보강 그라우팅 재료로 구조물의 안정성을 확보합니다.",
       en: "High-performance grouting material that ensures structural stability."
     },
     fullDescription: {
-      ko: "DULITE 지반보강 그라우팅제는 우수한 유동성과 충전성을 가진 고성능 그라우팅 재료입니다. 구조물의 공극을 완벽하게 충전하여 안정성을 높이고, 다양한 시공 조건에서 최적의 성능을 발휘합니다.",
-      en: "DULITE Grouting Agent is a high-performance grouting material with excellent fluidity and filling properties. It perfectly fills structural voids to enhance stability and delivers optimal performance under various construction conditions."
+      ko: "DULITE 그라우팅제는 우수한 유동성과 충전성을 가진 고성능 그라우팅 재료입니다. 연약지반 보강을 완벽하게 수행하여 안정성을 높이고, 다양한 시공 조건에서 최적의 성능을 발휘합니다.",
+      en: "DULITE Grouting Agent is a high-performance grouting material with excellent fluidity and filling properties. It perfectly reinforces soft ground to enhance stability and provides optimal performance under various construction conditions."
     },
     specifications: {
       ko: [
@@ -184,12 +184,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "img/groundreinforcingagentthumb.png",
-      main: "img/DULITE_GROUTING.png",
+      thumbnail: "img/ground_reinforcement/groundreinforcingagentthumb.png",
+      main: "img/ground_reinforcement/ground_reinforcement_main.png",
       gallery: [
-        "img/DULITE_GROUTING.png",
-        "img/ground_reinforcement_detail.png",
-        "img/groundreinforcingagentthumb.png"
+        "img/ground_reinforcement/groundreinforcement_carousel_01.png",
+        "img/ground_reinforcement/ground_reinforcement_main.png",
+        "img/ground_reinforcement/groundreinforcement_product.png"
       ]
     },
     features: {
@@ -257,12 +257,12 @@ const products = [
       ]
     },
     images: {
-      thumbnail: "img/waterproofing_agent_thumb.png",
-      main: "img/DULITE_WATERPROOFING.png",
+      thumbnail: "img/waterproofing/waterproofing_agent_thumb.png",
+      main: "img/waterproofing/waterproofing_main.png",
       gallery: [
-        "img/DULITE_WATERPROOFING.png",
-        "img/waterproofing_detail.png",
-        "img/waterproofing_agent_thumb.png"
+        "img/waterproofing/waterproofing_carousel_01.png",
+        "img/waterproofing/waterproofing_main.png",
+        "img/waterproofing/waterproofing_product.png"
       ]
     },
     features: {
