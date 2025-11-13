@@ -59,7 +59,10 @@ function populateProductInfo(product, lang) {
   const productDescriptionElement = document.getElementById('product-description');
   
   if (productNameElement) {
-    productNameElement.textContent = product.name[lang];
+    // Wrap "DULITE" in brand-text span for Audiowide font
+    const productName = product.name[lang];
+    const formattedProductName = productName.replace(/DULITE/g, '<span class="brand-text">DULITE</span>');
+    productNameElement.innerHTML = formattedProductName;
   }
   
   if (productDescriptionElement) {

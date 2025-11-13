@@ -29,6 +29,9 @@ function createProductCard(product, lang) {
   const productDescription = product.shortDescription[lang];
   const productImage = product.images.thumbnail;
   
+  // Wrap "DULITE" in brand-text span for Audiowide font
+  const formattedProductName = productName.replace(/DULITE/g, '<span class="brand-text">DULITE</span>');
+  
   // Create card HTML structure
   card.innerHTML = `
     <div class="product-image-container relative overflow-hidden" style="aspect-ratio: 16/10;">
@@ -40,8 +43,8 @@ function createProductCard(product, lang) {
       />
     </div>
     <div class="product-content p-6">
-      <h3 class="product-name text-2xl font-bold mb-3 brand-text" style="font-family: 'Audiowide', cursive; text-transform: uppercase; letter-spacing: 0.05em; color: #1C2B33;">
-        ${productName}
+      <h3 class="product-name text-2xl font-bold mb-3" style="color: #1C2B33;">
+        ${formattedProductName}
       </h3>
       <p class="product-description text-base mb-4 opacity-80" style="color: #1C2B33; line-height: 1.6;">
         ${productDescription}
