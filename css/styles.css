@@ -1058,6 +1058,121 @@ img {
   }
 }
 
+/* Product Detail Page - Wide Screen Margins */
+@media (min-width: 1024px) {
+  .product-detail-content {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .product-detail-content {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+}
+
+/* ===================================
+   Brand Section Specific Styles
+   =================================== */
+
+/* Backdrop blur support */
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Gradient backgrounds for benefit cards */
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+/* Brand section decorative elements animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===================================
+   Sustainability Section Specific Styles
+   =================================== */
+
+/* Hover effects for sustainability cards */
+#sustainability .bg-white:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 130, 251, 0.2);
+}
+
+/* Gradient card hover effects */
+.bg-gradient-to-br:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   Mobile Responsive for New Sections
+   =================================== */
+
+@media (max-width: 767px) {
+  /* Brand section adjustments */
+  #brand .bg-white.bg-opacity-10 {
+    padding: 1.5rem;
+  }
+  
+  #brand h2 {
+    font-size: 2rem !important;
+  }
+  
+  #brand h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  #brand .grid.md\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+  
+  /* Sustainability section adjustments */
+  #sustainability h2 {
+    font-size: 2rem !important;
+  }
+  
+  #sustainability .text-xl {
+    font-size: 1.125rem !important;
+  }
+  
+  #sustainability .grid.md\\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  #sustainability .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Reduce padding on mobile for new sections */
+  #brand,
+  #sustainability {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Tablet adjustments for new sections */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #sustainability .grid.lg\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 /* Performance Optimization */
 @media (prefers-reduced-motion: reduce) {
   *,
