@@ -104,7 +104,6 @@
 .hero-section {
   position: relative;
   overflow: hidden;
-  transition: background 1s ease-in-out;
 }
 
 .hero-section::before {
@@ -116,17 +115,6 @@
   bottom: 0;
   background: linear-gradient(135deg, rgba(0, 130, 251, 0.1) 0%, rgba(0, 100, 224, 0.1) 100%);
   pointer-events: none;
-}
-
-/* Mobile-specific: Start with white background */
-@media (max-width: 767px) {
-  .hero-section.hero-bg-initial {
-    background: #FFFFFF !important;
-  }
-  
-  .hero-section.hero-bg-blue {
-    background: linear-gradient(135deg, #0082FB 0%, #0064E0 100%) !important;
-  }
 }
 
 /* Hero Video Background */
