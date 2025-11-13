@@ -396,6 +396,16 @@
     min-height: 100vh;
     padding-top: 4rem;
     padding-bottom: 2rem;
+    background-color: #FFFFFF !important;
+  }
+  
+  /* Hero section text color on mobile */
+  .hero-section h1,
+  .hero-section .brand-title,
+  .hero-section .subtitle,
+  .hero-section .description,
+  .hero-section p {
+    color: #0082FB !important;
   }
   
   /* About section cards */
