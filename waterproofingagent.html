@@ -46,55 +46,91 @@
       </div>
     </div>
   </nav>
-  <main class="pt-24 pb-20" style="background-color: #F1F5F8;">
-    <div class="container mx-auto px-4">
-      <div class="mb-8">
-        <a href="index.html#products" class="inline-flex items-center px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-md" style="background-color: white; color: #1C2B33;">
+  <main class="pt-16" style="background-color: #F1F5F8;">
+    <!-- 2. Wide Main Image with Product Title -->
+    <div class="relative w-full" style="height: 60vh; min-height: 400px;">
+      <img src="img/DULITE_WATERPROOFING.png" alt="DULITE Waterproofing Grouting Agent" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white text-center px-4" style="font-family: 'Audiowide', cursive; text-transform: uppercase; letter-spacing: 0.05em;">
+          <span id="product-name">DULITE Waterproof Agent</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+      <!-- 3. Product Photo and Detail Texts (2 columns) -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <img src="img/waterproofing_detail.png" alt="DULITE Waterproofing Detail" class="w-full h-auto object-cover rounded-lg">
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col justify-center">
+          <p id="product-description" class="text-lg leading-relaxed" style="color: #1C2B33; opacity: 0.9;"></p>
+        </div>
+      </div>
+
+      <!-- 4. 주요 특징 -->
+      <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.keyFeatures">주요 특징</h2>
+        <ul id="features-list" class="space-y-3"></ul>
+      </div>
+
+      <!-- 5. 제품 사양 -->
+      <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.specifications">제품 사양</h2>
+        <div class="overflow-x-auto">
+          <table id="specifications-table" class="w-full"><tbody></tbody></table>
+        </div>
+      </div>
+
+      <!-- 6. 적용 분야 -->
+      <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.applications">적용 분야</h2>
+        <ul id="applications-list" class="space-y-3"></ul>
+      </div>
+
+      <!-- 7. Carousel of Images -->
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.gallery">제품 갤러리</h2>
+        <div class="relative">
+          <div id="carousel" class="overflow-hidden rounded-lg">
+            <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+              <div class="w-full flex-shrink-0">
+                <img src="img/DULITE_WATERPROOFING.png" alt="Waterproofing 1" class="w-full h-auto object-cover" style="max-height: 500px;">
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="img/waterproofing_detail.png" alt="Waterproofing 2" class="w-full h-auto object-cover" style="max-height: 500px;">
+              </div>
+              <div class="w-full flex-shrink-0">
+                <img src="img/waterproofing_agent_thumb.png" alt="Waterproofing 3" class="w-full h-auto object-cover" style="max-height: 500px;">
+              </div>
+            </div>
+          </div>
+          <button id="prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-3 shadow-lg transition-all duration-300">
+            <svg class="w-6 h-6" style="color: #1C2B33;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button id="next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-3 shadow-lg transition-all duration-300">
+            <svg class="w-6 h-6" style="color: #1C2B33;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          <div class="flex justify-center mt-4 space-x-2">
+            <button class="carousel-dot w-3 h-3 rounded-full bg-blue-500" data-index="0"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-index="1"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300" data-index="2"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Products Button -->
+      <div class="mt-12 text-center">
+        <a href="index.html#products" class="inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg" style="background-color: #0082FB; color: white;">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
           </svg>
           <span data-i18n="product.backToProducts">제품 목록으로</span>
         </a>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-white rounded-lg shadow-lg p-6">
-          <div class="mb-4 rounded-lg overflow-hidden" style="background-color: #F1F5F8;">
-            <img id="main-image" src="img/DULITE_WATERPROOFING.png" alt="DULITE Waterproofing Grouting Agent" class="w-full h-auto object-cover" style="aspect-ratio: 16/10;">
-          </div>
-          <div class="grid grid-cols-3 gap-3">
-            <div class="cursor-pointer rounded-lg overflow-hidden hover:opacity-80 transition-opacity" onclick="document.getElementById('main-image').src='img/DULITE_WATERPROOFING.png'">
-              <img src="img/DULITE_WATERPROOFING.png" alt="Waterproofing 1" class="w-full h-auto object-cover">
-            </div>
-            <div class="cursor-pointer rounded-lg overflow-hidden hover:opacity-80 transition-opacity" onclick="document.getElementById('main-image').src='img/waterproofing_detail.png'">
-              <img src="img/waterproofing_detail.png" alt="Waterproofing 2" class="w-full h-auto object-cover">
-            </div>
-            <div class="cursor-pointer rounded-lg overflow-hidden hover:opacity-80 transition-opacity" onclick="document.getElementById('main-image').src='img/waterproofing_agent_thumb.png'">
-              <img src="img/waterproofing_agent_thumb.png" alt="Waterproofing 3" class="w-full h-auto object-cover">
-            </div>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-8">
-          <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Audiowide', cursive; color: #0082FB; text-transform: uppercase; letter-spacing: 0.05em;">
-            <span id="product-name">DULITE Waterproof Agent</span>
-          </h1>
-          <p id="product-description" class="text-lg mb-6" style="color: #1C2B33; opacity: 0.9;"></p>
-        </div>
-      </div>
-      <div class="space-y-8">
-        <div class="bg-white rounded-lg shadow-lg p-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.keyFeatures">주요 특징</h2>
-          <ul id="features-list" class="space-y-3"></ul>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.specifications">제품 사양</h2>
-          <div class="overflow-x-auto">
-            <table id="specifications-table" class="w-full"><tbody></tbody></table>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="color: #1C2B33;" data-i18n="product.applications">적용 분야</h2>
-          <ul id="applications-list" class="space-y-3"></ul>
-        </div>
       </div>
     </div>
   </main>
@@ -139,6 +175,36 @@
     }
     renderProduct();
     document.addEventListener('languageChanged', renderProduct);
+
+    // Carousel functionality
+    let currentSlide = 0;
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = 3;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.style.backgroundColor = index === currentSlide ? '#0082FB' : '#D1D5DB';
+      });
+    }
+
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentSlide = parseInt(dot.dataset.index);
+        updateCarousel();
+      });
+    });
   </script>
 </body>
 </html>

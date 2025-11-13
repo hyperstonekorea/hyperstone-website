@@ -6,7 +6,7 @@ const products = [
     id: "1",
     slug: "readymixconcrete",
     name: {
-      ko: "DULITE Ready Mix Concrete",
+      ko: "DULITE 레미콘",
       en: "DULITE Ready Mix Concrete"
     },
     shortDescription: {
@@ -14,7 +14,7 @@ const products = [
       en: "High-quality ready-mix concrete that maximizes construction site efficiency."
     },
     fullDescription: {
-      ko: "DULITE Ready Mix Concrete는 최신 기술과 엄격한 품질 관리를 통해 생산되는 고품질 레미콘입니다. 건설 현장의 다양한 요구사항을 충족시키며, 일관된 품질과 우수한 작업성을 제공합니다.",
+      ko: "DULITE 레미콘은 최신 기술과 엄격한 품질 관리를 통해 생산되는 고품질 레미콘입니다. 건설 현장의 다양한 요구사항을 충족시키며, 일관된 품질과 우수한 작업성을 제공합니다.",
       en: "DULITE Ready Mix Concrete is high-quality ready-mix concrete produced through cutting-edge technology and rigorous quality control. It meets various construction site requirements and provides consistent quality and excellent workability."
     },
     specifications: {
@@ -75,7 +75,7 @@ const products = [
     id: "2",
     slug: "precastconcrete",
     name: {
-      ko: "DULITE Precast Concrete",
+      ko: "DULITE 프리캐스트 콘크리트",
       en: "DULITE Precast Concrete"
     },
     shortDescription: {
@@ -83,7 +83,7 @@ const products = [
       en: "High-quality precast concrete products manufactured in factory."
     },
     fullDescription: {
-      ko: "DULITE Precast Concrete는 공장에서 정밀하게 제작되어 현장 시공 시간을 단축하고 품질을 향상시킵니다. 다양한 형태와 크기로 제작 가능하며, 건축 및 토목 프로젝트에 최적화되어 있습니다.",
+      ko: "DULITE 프리캐스트 콘크리트는 공장에서 정밀하게 제작되어 현장 시공 시간을 단축하고 품질을 향상시킵니다. 다양한 형태와 크기로 제작 가능하며, 건축 및 토목 프로젝트에 최적화되어 있습니다.",
       en: "DULITE Precast Concrete is precisely manufactured in factory to reduce on-site construction time and improve quality. Available in various shapes and sizes, optimized for building and civil engineering projects."
     },
     specifications: {
@@ -144,7 +144,7 @@ const products = [
     id: "3",
     slug: "groutingagent",
     name: {
-      ko: "DULITE Grouting Agent",
+      ko: "DULITE 지반보강 그라우팅제",
       en: "DULITE Grouting Agent"
     },
     shortDescription: {
@@ -152,7 +152,7 @@ const products = [
       en: "High-performance grouting material that ensures structural stability."
     },
     fullDescription: {
-      ko: "DULITE Grouting Agent는 우수한 유동성과 충전성을 가진 고성능 그라우팅 재료입니다. 구조물의 공극을 완벽하게 충전하여 안정성을 높이고, 다양한 시공 조건에서 최적의 성능을 발휘합니다.",
+      ko: "DULITE 지반보강 그라우팅제는 우수한 유동성과 충전성을 가진 고성능 그라우팅 재료입니다. 구조물의 공극을 완벽하게 충전하여 안정성을 높이고, 다양한 시공 조건에서 최적의 성능을 발휘합니다.",
       en: "DULITE Grouting Agent is a high-performance grouting material with excellent fluidity and filling properties. It perfectly fills structural voids to enhance stability and delivers optimal performance under various construction conditions."
     },
     specifications: {
@@ -213,7 +213,7 @@ const products = [
     id: "4",
     slug: "waterproofingagent",
     name: {
-      ko: "DULITE Waterproofing Grouting Agent",
+      ko: "DULITE 차수제",
       en: "DULITE Waterproofing Grouting Agent"
     },
     shortDescription: {
@@ -221,7 +221,7 @@ const products = [
       en: "Underground waterproofing grouting agent for groundwater blocking and toxic waste leakage prevention."
     },
     fullDescription: {
-      ko: "DULITE Waterproofing Grouting Agent는 지하 구조물의 지중 방수를 위해 특별히 개발된 고성능 그라우팅 재료입니다. 지하수 침투를 완벽하게 차단하고 유해 폐기물 및 오염물질의 누출을 방지하여 환경을 보호합니다. 우수한 침투성과 충전성으로 지반의 미세한 균열과 공극까지 완벽하게 밀봉하며, 장기적인 방수 효과를 제공합니다.",
+      ko: "DULITE 차수제는 지하 구조물의 지중 방수를 위해 특별히 개발된 고성능 그라우팅 재료입니다. 지하수 침투를 완벽하게 차단하고 유해 폐기물 및 오염물질의 누출을 방지하여 환경을 보호합니다. 우수한 침투성과 충전성으로 지반의 미세한 균열과 공극까지 완벽하게 밀봉하며, 장기적인 방수 효과를 제공합니다.",
       en: "DULITE Waterproofing Grouting Agent is a high-performance grouting material specially developed for underground waterproofing of subsurface structures. It completely blocks groundwater infiltration and prevents leakage of toxic waste and contaminants to protect the environment. With excellent penetration and filling properties, it perfectly seals even microscopic cracks and voids in the ground, providing long-term waterproofing effects."
     },
     specifications: {
