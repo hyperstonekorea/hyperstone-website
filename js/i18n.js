@@ -43,7 +43,11 @@ const translations = {
       title: "제품",
       subtitle: "DULITE 브랜드의 프리미엄 콘크리트 솔루션",
       learnMore: "자세히 보기",
-      loading: "제품을 불러오는 중..."
+      loading: "제품을 불러오는 중...",
+      readymix: "DULITE 레미콘",
+      precast: "DULITE PC",
+      grouting: "DULITE 그라우팅제",
+      waterproofing: "DULITE 차수제"
     },
     product: {
       backToProducts: "제품 목록으로",
@@ -108,7 +112,11 @@ const translations = {
       title: "Products",
       subtitle: "Premium Concrete Solutions from the DULITE Brand",
       learnMore: "Learn More",
-      loading: "Loading products..."
+      loading: "Loading products...",
+      readymix: "DULITE Ready Mix",
+      precast: "DULITE PC",
+      grouting: "DULITE Grouting Agent",
+      waterproofing: "DULITE Waterproofing Agent"
     },
     product: {
       backToProducts: "Back to Products",

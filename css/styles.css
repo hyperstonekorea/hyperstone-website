@@ -267,6 +267,15 @@
     display: none !important;
   }
   
+  /* Fix video to fit entire screen on mobile */
+  .hero-video {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    min-width: auto;
+    min-height: auto;
+  }
+  
   /* Mobile Navigation - Vertical stacking */
   #mobile-menu {
     max-height: 0;
@@ -499,6 +508,54 @@ body {
   font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: var(--color-dark);
   line-height: 1.6;
+}
+
+/* ===================================
+   Product Card Specific Styles
+   =================================== */
+
+/* Product card description - Apply Gmarket Sans for Korean text */
+.product-card .product-description {
+  font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Product card name - Keep Audiowide for DULITE brand */
+.product-card .product-name {
+  font-family: 'Audiowide', cursive !important;
+}
+
+/* Product card button - Apply Gmarket Sans for Korean text */
+.product-card .btn-learn-more {
+  font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* ===================================
+   Product Detail Page Specific Styles
+   =================================== */
+
+/* Product detail name - Keep Audiowide for DULITE brand */
+#product-name {
+  font-family: 'Audiowide', cursive !important;
+}
+
+/* Product detail description - Apply Gmarket Sans for Korean text */
+#product-description {
+  font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Product detail features list - Apply Gmarket Sans for Korean text */
+#features-list li span {
+  font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Product detail specifications table - Apply Gmarket Sans for Korean text */
+#specifications-table td {
+  font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Product detail applications list - Apply Gmarket Sans for Korean text */
+#applications-list li span {
+  font-family: 'Gmarket Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 /* General Transitions - Apply smooth transitions to all elements */
@@ -897,6 +954,28 @@ img {
 
 .carousel-dot:hover {
   transform: scale(1.2);
+}
+
+/* Product Navigation Buttons */
+.product-nav-btn {
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 130, 251, 0.3);
+}
+
+.product-nav-btn.active {
+  box-shadow: 0 4px 12px rgba(0, 130, 251, 0.4);
+}
+
+.product-nav-btn:not(.active):hover {
+  background-color: rgba(0, 130, 251, 0.1) !important;
+  color: #0082FB !important;
 }
 
 /* Product photo section image */
