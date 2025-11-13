@@ -19,7 +19,7 @@ const translations = {
       scrollDown: "아래로 스크롤"
     },
     brand: {
-      title: "DULITE 브랜드 소개",
+      title: '<span class="brand-text">DULITE</span> 브랜드 소개',
       subtitle: "초고강도 콘크리트 기술의 새로운 기준",
       techTitle: "기술 개요",
       tech1: "두 개의 고형화제를 사용하여 콘크리트 강도를 획기적으로 향상",
@@ -123,7 +123,7 @@ const translations = {
       scrollDown: "Scroll Down"
     },
     brand: {
-      title: "Introducing DULITE Brand",
+      title: 'Introducing <span class="brand-text">DULITE</span> Brand',
       subtitle: "Setting New Standards in Ultra-High Strength Concrete Technology",
       techTitle: "Technology Overview",
       tech1: "Dramatically enhances concrete strength using two solidifying agents",
@@ -285,7 +285,15 @@ function updateAllTranslations() {
     const key = element.getAttribute('data-i18n');
     if (key) {
       const translatedText = t(key);
-      element.textContent = translatedText;
+      
+      // Check if element has data-i18n-html attribute for HTML content
+      const useHtml = element.hasAttribute('data-i18n-html');
+      
+      if (useHtml) {
+        element.innerHTML = translatedText;
+      } else {
+        element.textContent = translatedText;
+      }
     }
   });
   
