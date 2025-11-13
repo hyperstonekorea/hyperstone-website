@@ -19,13 +19,13 @@ const products = [
     },
     specifications: {
       ko: [
-        { label: "압축강도", value: "25-40", unit: "MPa" },
+        { label: "압축강도", value: "110+", unit: "MPa" },
         { label: "슬럼프", value: "80-180", unit: "mm" },
         { label: "공기량", value: "4.5±1.5", unit: "%" },
         { label: "염화물 함량", value: "0.3 이하", unit: "kg/m³" }
       ],
       en: [
-        { label: "Compressive Strength", value: "25-40", unit: "MPa" },
+        { label: "Compressive Strength", value: "110+", unit: "MPa" },
         { label: "Slump", value: "80-180", unit: "mm" },
         { label: "Air Content", value: "4.5±1.5", unit: "%" },
         { label: "Chloride Content", value: "≤0.3", unit: "kg/m³" }
@@ -79,7 +79,7 @@ const products = [
       en: "DULITE Precast Concrete"
     },
     shortDescription: {
-      ko: "공장에서 제작된 고품질 PC 제품입니다.",
+      ko: "공장에서 제작된 내화성을 가진 초고강도 PC 제품입니다.",
       en: "High-quality precast concrete products manufactured in factory."
     },
     fullDescription: {
@@ -88,13 +88,13 @@ const products = [
     },
     specifications: {
       ko: [
-        { label: "압축강도", value: "40-60", unit: "MPa" },
+        { label: "압축강도", value: "110 이상", unit: "MPa" },
         { label: "흡수율", value: "5 이하", unit: "%" },
         { label: "동결융해 저항성", value: "300회 이상", unit: "사이클" },
         { label: "치수 정밀도", value: "±3", unit: "mm" }
       ],
       en: [
-        { label: "Compressive Strength", value: "40-60", unit: "MPa" },
+        { label: "Compressive Strength", value: "110+", unit: "MPa" },
         { label: "Water Absorption", value: "≤5", unit: "%" },
         { label: "Freeze-Thaw Resistance", value: "≥300", unit: "cycles" },
         { label: "Dimensional Accuracy", value: "±3", unit: "mm" }
@@ -157,13 +157,13 @@ const products = [
     },
     specifications: {
       ko: [
-        { label: "압축강도", value: "50-80", unit: "MPa" },
+        { label: "압축강도", value: "15+", unit: "MPa" },
         { label: "유동성", value: "200-250", unit: "mm" },
         { label: "팽창률", value: "0.1-0.5", unit: "%" },
         { label: "블리딩", value: "0", unit: "%" }
       ],
       en: [
-        { label: "Compressive Strength", value: "50-80", unit: "MPa" },
+        { label: "Compressive Strength", value: "15+", unit: "MPa" },
         { label: "Fluidity", value: "200-250", unit: "mm" },
         { label: "Expansion Rate", value: "0.1-0.5", unit: "%" },
         { label: "Bleeding", value: "0", unit: "%" }
