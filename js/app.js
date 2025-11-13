@@ -161,6 +161,7 @@ function checkDependencies() {
 function setupHeroVideo() {
   const heroVideo = document.getElementById('hero-video');
   const heroContent = document.getElementById('hero-content');
+  const heroSection = document.getElementById('home');
   
   if (heroVideo) {
     console.log('Setting up hero video...');
@@ -170,6 +171,13 @@ function setupHeroVideo() {
       console.log('Video ended, fading out...');
       // Add fade-out class to trigger CSS transition
       heroVideo.classList.add('fade-out');
+      
+      // Change background to blue on mobile when video ends
+      if (heroSection && window.innerWidth <= 767) {
+        heroSection.classList.remove('hero-bg-initial');
+        heroSection.classList.add('hero-bg-blue');
+        console.log('Mobile: Changed hero background to blue');
+      }
       
       // Fade in hero text content after video starts fading
       if (heroContent) {
@@ -189,6 +197,11 @@ function setupHeroVideo() {
       console.error('Video failed to load:', e);
       // Remove video if it fails to load
       heroVideo.remove();
+      // Change background to blue on mobile
+      if (heroSection && window.innerWidth <= 767) {
+        heroSection.classList.remove('hero-bg-initial');
+        heroSection.classList.add('hero-bg-blue');
+      }
       // Show text immediately if video fails
       if (heroContent) {
         heroContent.classList.remove('hero-text-hidden');
@@ -201,6 +214,11 @@ function setupHeroVideo() {
       console.warn('Autoplay prevented:', error);
       // If autoplay is blocked, fade out immediately and show text
       heroVideo.classList.add('fade-out');
+      // Change background to blue on mobile
+      if (heroSection && window.innerWidth <= 767) {
+        heroSection.classList.remove('hero-bg-initial');
+        heroSection.classList.add('hero-bg-blue');
+      }
       if (heroContent) {
         heroContent.classList.remove('hero-text-hidden');
         heroContent.classList.add('hero-text-visible');
@@ -211,6 +229,11 @@ function setupHeroVideo() {
     });
   } else {
     // If no video element, show text immediately
+    // Change background to blue on mobile
+    if (heroSection && window.innerWidth <= 767) {
+      heroSection.classList.remove('hero-bg-initial');
+      heroSection.classList.add('hero-bg-blue');
+    }
     if (heroContent) {
       heroContent.classList.remove('hero-text-hidden');
       heroContent.classList.add('hero-text-visible');
