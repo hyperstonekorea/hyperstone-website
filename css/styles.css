@@ -124,8 +124,32 @@
     background: #FFFFFF !important;
   }
   
+  /* Make text dark on white background */
+  .hero-section.hero-bg-initial .brand-title,
+  .hero-section.hero-bg-initial .subtitle,
+  .hero-section.hero-bg-initial .description,
+  .hero-section.hero-bg-initial .scroll-indicator {
+    color: #1C2B33 !important;
+  }
+  
+  .hero-section.hero-bg-initial .scroll-indicator svg {
+    color: #1C2B33 !important;
+  }
+  
   .hero-section.hero-bg-blue {
     background: linear-gradient(135deg, #0082FB 0%, #0064E0 100%) !important;
+  }
+  
+  /* Ensure text is white on blue background */
+  .hero-section.hero-bg-blue .brand-title,
+  .hero-section.hero-bg-blue .subtitle,
+  .hero-section.hero-bg-blue .description,
+  .hero-section.hero-bg-blue .scroll-indicator {
+    color: #FFFFFF !important;
+  }
+  
+  .hero-section.hero-bg-blue .scroll-indicator svg {
+    color: #FFFFFF !important;
   }
 }
 
